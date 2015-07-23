@@ -22,8 +22,8 @@ here i am
 - make sure you have git installed (see the above step about installing xcode)
 - set your global git name and email:
 ```
-git config --global user.name "YOUR NAME HERE"
-git config --global user.email "YOUR EMAIL HERE"
+$> git config --global user.name "YOUR NAME HERE"
+$> git config --global user.email "YOUR EMAIL HERE"
 ```
 ## generate a private keypair, from a terminal window
 ```
@@ -64,18 +64,20 @@ $> cat ~/.ssh/id_rsa.pub | pbcopy
 
 
 - clone the repo
-	git clone git@github.com:josefsalyer/hereiam.git
+```
+$> git clone git@github.com:josefsalyer/hereiam.git
+```
 
 ## set up serverspec
 - have/get ruby (see the above step about installing XCode)
 - configure gem to install gems to your home directory
 ```
-echo gem: --user-install >> ~/.gemrc
+$> echo gem: --user-install >> ~/.gemrc
 ```
 - Add your local gem bin file to your path
 ```
-echo export PATH="$HOME/.gem/ruby/2.0.0/bin:${PATH}" >> ~/.bash_profile
-source ~/.bash_profile
+$> echo export PATH="$HOME/.gem/ruby/2.0.0/bin:${PATH}" >> ~/.bash_profile
+$> source ~/.bash_profile
 ```
 - install ServerSpec
 ```
@@ -83,8 +85,10 @@ gem install serverspec
 ```
 - verify that you can run serverspec
 ```
-which serverspec-init
+$> cd devops
+$> rake spec
 ```
+
 
 
 # access stuff
@@ -92,7 +96,8 @@ which serverspec-init
 # junk drawer
 
 ## if you use sublime text
-    mkdir -p ~/bin/
-    ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl
-
+```
+$> mkdir -p ~/bin/
+$> ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl
+```
 
