@@ -22,4 +22,8 @@ describe "local environment" do
     it { should exist }
   end
 
+  describe command('java -version'), :if => os[:family] == 'darwin' do
+    its(:stdout) {should contain('java version "1.8.0_45"') }
+  end
+
 end
