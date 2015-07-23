@@ -16,7 +16,12 @@ here i am
 
 
 # set up environment
-- make sure you have git installed
+- make sure you have git installed (see the above step about installing xcode)
+- set your global git name and email:
+```
+git config --global user.name "YOUR NAME HERE"
+git config --global user.email "YOUR EMAIL HERE"
+```
 - have a github.com account [http://www.github.com](http://www.github.com)
 - clone the repo
 	git clone https://github.com/josefsalyer/hereiam.git
