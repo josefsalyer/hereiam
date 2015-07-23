@@ -17,3 +17,7 @@ describe file(ENV["HOME"] + '/.gemrc'), :if => os[:family] == 'darwin' do
 	it { should exist }
         it { should contain 'gem: --user-install'}
 end
+
+describe file(ENV["HOME"] + '/.gem/ruby/2.0.0/bin'), :if => os[:family] == 'darwin' do
+  it { should exist }
+end
