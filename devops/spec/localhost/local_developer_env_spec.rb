@@ -21,3 +21,7 @@ end
 describe file(ENV["HOME"] + '/.gem/ruby/2.0.0/bin'), :if => os[:family] == 'darwin' do
   it { should exist }
 end
+
+describe command('echo $PATH'), :if => os[:family] == 'darwin' do
+  its(:stdout) { should contain(ENV["HOME"] + '/.gem/ruby/2.0.0/bin') }
+end
