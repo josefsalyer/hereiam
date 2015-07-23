@@ -22,6 +22,34 @@ here i am
 git config --global user.name "YOUR NAME HERE"
 git config --global user.email "YOUR EMAIL HERE"
 ```
+- generate a private keypair, from a terminal window
+```
+$> ssh-keygen
+
+Generating public/private rsa key pair.
+Enter file in which to save the key (/Users/<username>/.ssh/id_rsa):
+Enter passphrase (empty for no passphrase): <enter a passphrase if you dare!>
+Enter same passphrase again: <ditto>
+Your identification has been saved in /Users/<username>/.ssh/id_rsa.
+Your public key has been saved in /Users/<username>/.ssh/id_rsa.pub.
+The key fingerprint is:
+f4:1c:a7:31:18:38:0d:51:04:f6:b7:6b:81:fc:gb:8b <email address>
+
+The key's randomart image is:
++--[ RSA 2048]----+
+|    =O+          |
+|   .o... .       |
+|     .P + + .    |
+|     . + + *     |
+|      o S +      |
+|       . o       |
+|        +        |
+|       . +       |
+|        E o.     |
++-----------------+
+```
+
+
 - have a github.com account [http://www.github.com](http://www.github.com)
 - clone the repo
 	git clone https://github.com/josefsalyer/hereiam.git
