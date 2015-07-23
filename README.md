@@ -66,6 +66,25 @@ $> cat ~/.ssh/id_rsa.pub | pbcopy
 - clone the repo
 	git clone git@github.com:josefsalyer/hereiam.git
 
+## set up serverspec
+- have/get ruby (see the above step about installing XCode)
+- configure gem to install gems to your home directory
+```
+echo gem: --user-install >> ~/.gemrc
+```
+- Add your local gem bin file to your path
+```
+echo export PATH="$HOME/.gem/ruby/2.0.0/bin:${PATH}" >> ~/.bash_profile
+```
+- install ServerSpec
+```
+gem install serverspec
+```
+- verify that you can run serverspec (this may require opening a new terminal window)
+```
+which serverspec-init
+```
+
 
 # access stuff
 
