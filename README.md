@@ -63,10 +63,8 @@ $> cat ~/.ssh/id_rsa.pub | pbcopy
 - paste into the textbox and save!
 
 
-
-
 - clone the repo
-	git clone https://github.com/josefsalyer/hereiam.git
+	git clone git@github.com:josefsalyer/hereiam.git
 
 
 # access stuff
