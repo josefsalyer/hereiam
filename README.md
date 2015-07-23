@@ -16,14 +16,18 @@ here i am
 
 
 # set up environment
+
+- create/have a github.com account [http://www.github.com](http://www.github.com)
+
 - make sure you have git installed (see the above step about installing xcode)
 - set your global git name and email:
 ```
 git config --global user.name "YOUR NAME HERE"
 git config --global user.email "YOUR EMAIL HERE"
 ```
-- generate a private keypair, from a terminal window
+## generate a private keypair, from a terminal window
 ```
+
 $> ssh-keygen
 
 Generating public/private rsa key pair.
@@ -49,14 +53,23 @@ The key's randomart image is:
 +-----------------+
 ```
 
+## add your public rsa to github
+```
+$> cat ~/.ssh/id_rsa.pub | pbcopy
+```
 
-- have a github.com account [http://www.github.com](http://www.github.com)
+- navigate to your settings on github.com [https://github.com/settings/ssh](https://github.com/settings/ssh)
+- Click Add SSH Key
+- paste into the textbox and save!
+
+
+
+
 - clone the repo
 	git clone https://github.com/josefsalyer/hereiam.git
 
 
 # access stuff
-
 
 # junk drawer
 
