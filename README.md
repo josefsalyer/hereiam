@@ -75,12 +75,13 @@ echo gem: --user-install >> ~/.gemrc
 - Add your local gem bin file to your path
 ```
 echo export PATH="$HOME/.gem/ruby/2.0.0/bin:${PATH}" >> ~/.bash_profile
+source ~/.bash_profile
 ```
 - install ServerSpec
 ```
 gem install serverspec
 ```
-- verify that you can run serverspec (this may require opening a new terminal window)
+- verify that you can run serverspec
 ```
 which serverspec-init
 ```
