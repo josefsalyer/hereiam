@@ -39,6 +39,17 @@ namespace HereIAm.Test
 			// Assert
 			Assert.AreEqual (HttpStatusCode.BadRequest, results.StatusCode);
 		}
+
+		[Test]
+		public void UserArrivesWithInvalidPhoneNumberBadCharPostReturnsInvalid() {
+			// Act
+			var results = _client.Post ("/arrival/BADBEEF123", x => {
+				x.HttpRequest ();
+			});
+
+			// Assert
+			Assert.AreEqual (HttpStatusCode.BadRequest, results.StatusCode);
+		}
 	}
 }
 
