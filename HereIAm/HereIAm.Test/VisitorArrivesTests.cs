@@ -24,6 +24,20 @@ namespace HereIAm.Test
 			// Assert
 			Assert.AreEqual (HttpStatusCode.OK, results.StatusCode);
 		}
+
+		[Test ()]
+		public void UserArrivesWithInvalidPhoneNumberTooShortPostReturnsInvalid () {
+			//Arrange
+			var client = new Browser (new DefaultNancyBootstrapper ());
+
+			//Act
+			var results = client.Post ("/arrival/1234567", x => {
+				x.HttpRequest ();
+			});
+
+			// Assert
+			Assert.AreEqual (HttpStatusCode.BadRequest, results.StatusCode);
+		}
 	}
 }
 
