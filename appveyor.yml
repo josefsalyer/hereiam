@@ -1,3 +1,6 @@
 version: 1.0.{build}
+before_build:
+- nuget restore ./HereIAm/HereIAm.sln
 build:
+  project: ./HereIAm/HereIAm.sln
   verbosity: minimal
