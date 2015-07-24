@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 # this is for Java 1.8
 
-TOOL='mono mdk'
+TOOL='xamarin'
 
 
 #commands
@@ -9,44 +9,49 @@ CURL=`which curl`
 HDIUTIL=`which hdiutil`
 INSTALLER=`which installer`
 RM=`which rm`
+MV=`which mv`
+COPY=`which cp` 
 
-
-
-URL="http://download.mono-project.com/archive/4.0.2/macos-10-x86/MonoFramework-MDK-4.0.2.5.macos10.xamarin.x86.pkg"
+PACKAGE=""
+DISKIMAGE="XamarinStudio-5.9.2.4-0.dmg"
+URL="http://download.xamarin.com/studio/Mac/XamarinStudio-5.9.2.4-0.dmg"
 PATH='/tmp/'
-VOLUME=""
-PACKAGE="MonoFramework-MDK-4.0.2.5.macos10.xamarin.x86.pkg"
+VOLUME="/Volumes/Xamarin Studio"
+APP="Xamarin Studio.app"
+APPLICATIONS="/Applications/"
+
 
 
 
 download() {
 	echo "downloading ${TOOL}"
-	$CURL -L $URL > $PATH/$PACKAGE
+	$CURL -L $URL > $PATH/$DISKIMAGE
 	exit
 }
 
 mount() {
 	echo 'mounting dmg'
-	$HDIUTIL attach $PATH
+	$HDIUTIL attach $PATH/$DISKIMAGE
 	exit
 }
 
 install() {
 	echo "installing ${TOOL}"
-	${INSTALLER} -pkg "${PATH}/${PACKAGE}" -target /
+	$COPY -Rf "${VOLUME}/${APP}" $APPLICATIONS
 	exit
 }
 
 
 uninstall() {
 	echo "uninstalling ${TOOL}"
-	
+	$RM -rf "${APPLICATIONS}/${APP}"
 	exit
 }
 
 cleanup(){
 	echo 'removing temp files'
-	$RM -rf $PATH/$PACKAGE
+	$RM -rf $PATH/$DISKIMAGE
+	
 }
 
 unmount() {
