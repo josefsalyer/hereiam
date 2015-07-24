@@ -8,16 +8,20 @@ namespace HereIAm.Test
 	[TestFixture ()]
 	public class VisitorArrivesTests
 	{
-		// Name | Phone    | Results
-		// josef|5551234567|accepted
+		private Browser _client;
+			
+		[SetUp]
+		public void InitializeTest()
+		{
+			// Arrange
+			_client = new Browser (new DefaultNancyBootstrapper ());
+		}
+
 		[Test ()]
 		public void UserArrivesWihValidPhoneNumberPostReturnsOK ()
 		{
-			// Arrange
-			var client = new Browser (new DefaultNancyBootstrapper ());
-
 			// Act
-			var results = client.Post ("/arrival/5551234567", x => {
+			var results = _client.Post ("/arrival/5551234567", x => {
 				x.HttpRequest ();
 			});
 
@@ -27,11 +31,8 @@ namespace HereIAm.Test
 
 		[Test ()]
 		public void UserArrivesWithInvalidPhoneNumberTooShortPostReturnsInvalid () {
-			//Arrange
-			var client = new Browser (new DefaultNancyBootstrapper ());
-
 			//Act
-			var results = client.Post ("/arrival/1234567", x => {
+			var results = _client.Post ("/arrival/1234567", x => {
 				x.HttpRequest ();
 			});
 
