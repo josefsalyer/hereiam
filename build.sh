@@ -2,8 +2,10 @@
 
 XBUILD=`which xbuild`
 NUNIT=`which nunit-console`
-
+NUGET=`which nuget`
 TESTED=0
+
+$NUGET restore HereIAm/HereIAm.sln
 
 fswatch -o . -e "*.cs" | (while read ; do
 	if [ $TESTED -eq 0 ]
