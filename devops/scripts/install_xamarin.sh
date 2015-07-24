@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
-# this is for Java 1.8
+# this is for Xamarin Studio 5.9.2.4-0
 
 TOOL='xamarin'
 
@@ -61,7 +61,7 @@ unmount() {
 }
 
 usage() {
-	echo "./scripts/install_java.sh download|mount|install|unmount|uninstall|cleanup"
+	echo "./scripts/install_xamarin.sh download|mount|install|unmount|uninstall|cleanup"
 	exit
 }
 

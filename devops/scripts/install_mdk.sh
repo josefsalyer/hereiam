@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
-# this is for Java 1.8
+# this is for mono mdk 4.0.2.5
 
 TOOL='mono mdk'
 
@@ -25,11 +25,6 @@ download() {
 	exit
 }
 
-mount() {
-	echo 'mounting dmg'
-	$HDIUTIL attach $PATH
-	exit
-}
 
 install() {
 	echo "installing ${TOOL}"
@@ -39,7 +34,7 @@ install() {
 
 
 uninstall() {
-	echo "uninstalling ${TOOL}"
+	echo "TBD: uninstalling ${TOOL}"
 	
 	exit
 }
@@ -49,14 +44,9 @@ cleanup(){
 	$RM -rf $PATH/$PACKAGE
 }
 
-unmount() {
-	echo 'unmounting dmg'
-	$HDIUTIL detach "${VOLUME}"
-	exit
-}
 
 usage() {
-	echo "./scripts/install_java.sh download|mount|install|unmount|uninstall|cleanup"
+	echo "./scripts/install_mdk.sh download|install|uninstall|cleanup"
 	exit
 }
 
@@ -64,12 +54,8 @@ usage() {
 case $1 in
 	'download' )
 		download ;;
-	'mount' )
-		mount ;;
 	'install' )
 		install ;;
-	'unmount' )
-		unmount ;;
 	'uninstall' )
 		uninstall ;;
 	'cleanup' )
