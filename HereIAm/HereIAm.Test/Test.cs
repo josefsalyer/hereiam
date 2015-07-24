@@ -9,6 +9,11 @@ namespace HereIAm.Test
 		[Test ()]
 		public void TestCase ()
 		{
+			var expected = 3;
+			var actual = 1;
+
+
+			Assert.AreEqual (expected, actual);
 		}
 	}
 }
