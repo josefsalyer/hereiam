@@ -54,4 +54,10 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HereIAm.Dto\HereIAm.Dto.csproj">
+      <Project>{54E4CEA4-FC9E-4C77-8394-F75B13C99C9A}</Project>
+      <Name>HereIAm.Dto</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>
