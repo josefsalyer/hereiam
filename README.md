@@ -1,6 +1,10 @@
 # hereiam
 here i am 
 
+[![Build status](https://img.shields.io/appveyor/ci/josefsalyer/hereiam/develop.svg?style=flat-square)](https://ci.appveyor.com/project/josefsalyer/hereiam)
+[![Release](https://img.shields.io/github/release/josefsalyer/hereiam.svg?style=flat-square)](https://github.com/josefsalyer/hereiam/releases/latest)
+[![Issues](https://img.shields.io/github/issues/josefsalyer/hereiam.svg?style=flat-square)](https://github.com/josefsalyer/hereiam/issues)
+
 # setup instructions
 
 # download tools
