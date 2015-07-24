@@ -3,8 +3,8 @@ branches:
   only:
   - develop
   - feature/*
-before_build:
+build_script:
 - nuget restore ./HereIAm/HereIAm.sln
-build:
-  project: ./HereIAm/HereIAm.sln
-  verbosity: minimal
+- msbuild "HereIAm\HereIAm.sln" /verbosity:minimal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+test_script:
+- nunit-console HereIAm.Test/bin/Debug/HereIAm.Test.dll
