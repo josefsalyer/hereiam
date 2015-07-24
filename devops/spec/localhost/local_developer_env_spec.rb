@@ -31,6 +31,10 @@ describe "local environment" do
     its(:stdout) {should contain('Mono JIT compiler version 4.0.2') }
   end
 
+  describe file("/Applications/Xamarin Studio.app"), :if => os[:family] == 'darwin' do
+    it { should exist }
+  end
+
   describe file(ENV["HOME"] + '/.gem/ruby/2.0.0/bin'), :if => os[:family] == 'darwin' do
     it { should exist }
   end
