@@ -5,7 +5,7 @@ using Nancy.Testing;
 
 namespace HereIAm.Test
 {
-	[TestFixture ()]
+	[TestFixture]
 	public class VisitorArrivesTests
 	{
 		private Browser _client;
@@ -17,7 +17,7 @@ namespace HereIAm.Test
 			_client = new Browser (new DefaultNancyBootstrapper ());
 		}
 
-		[Test ()]
+		[Test]
 		public void UserArrivesWihValidPhoneNumberPostReturnsOK ()
 		{
 			// Act
@@ -29,7 +29,7 @@ namespace HereIAm.Test
 			Assert.AreEqual (HttpStatusCode.OK, results.StatusCode);
 		}
 
-		[Test ()]
+		[Test]
 		public void UserArrivesWithInvalidPhoneNumberTooShortPostReturnsInvalid () {
 			//Act
 			var results = _client.Post ("/arrival/1234567", x => {
@@ -44,6 +44,17 @@ namespace HereIAm.Test
 		public void UserArrivesWithInvalidPhoneNumberBadCharPostReturnsInvalid() {
 			// Act
 			var results = _client.Post ("/arrival/BADBEEF123", x => {
+				x.HttpRequest ();
+			});
+
+			// Assert
+			Assert.AreEqual (HttpStatusCode.BadRequest, results.StatusCode);
+		}
+
+		[Test]
+		public void UserArrivesWithInvalidPhoneNumberTooLongPostReturnsInvalid() {
+			// Act
+			var results = _client.Post ("/arrival/012345678901", x => {
 				x.HttpRequest ();
 			});
 
