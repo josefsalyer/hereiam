@@ -15,9 +15,9 @@ namespace HereIAm
 			return _phonePattern.IsMatch (phoneNumber);
 		}
 
-		public string GenerateAcknowledgementResponse(bool isValidNumber)
+		public string GenerateAcknowledgementResponse(bool isValidPhoneNumber)
 		{
-			if (isValidNumber)
+			if (isValidPhoneNumber)
 				return VALID_ACK_MESSAGE;
 			return null;
 		}

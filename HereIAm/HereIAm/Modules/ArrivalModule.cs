@@ -20,14 +20,14 @@ namespace HereIAm
 		private Response PostArrival(DynamicDictionary param) {
 			var statusCode = HttpStatusCode.InternalServerError;
 
-			var isValidNumber = _arrival.ValidatePhoneNumber (param ["phoneNumber"]);
-			if (isValidNumber) {
+			var isValidPhoneNumber = _arrival.ValidatePhoneNumber (param ["phoneNumber"]);
+			if (isValidPhoneNumber) {
 				statusCode = HttpStatusCode.OK;
 			} else {
 				statusCode = HttpStatusCode.BadRequest;
 			}
 
-			var responseBody = _arrival.GenerateAcknowledgementResponse (isValidNumber);
+			var responseBody = _arrival.GenerateAcknowledgementResponse (isValidPhoneNumber);
 
 			return new TextResponse (statusCode, responseBody);
 		}
