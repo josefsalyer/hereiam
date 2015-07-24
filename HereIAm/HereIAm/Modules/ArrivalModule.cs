@@ -1,5 +1,6 @@
 ﻿using System;
 using Nancy;
+using Nancy.Responses;
 
 namespace HereIAm
 {
@@ -16,16 +17,19 @@ namespace HereIAm
 			Post ["/{phoneNumber}"] = param => PostArrival (param);
 		}
 
-		private HttpStatusCode PostArrival(DynamicDictionary param) {
+		private Response PostArrival(DynamicDictionary param) {
 			var statusCode = HttpStatusCode.InternalServerError;
 
-			if (_arrival.ValidatePhoneNumber (param["phoneNumber"])) {
+			var isValidNumber = _arrival.ValidatePhoneNumber (param ["phoneNumber"]);
+			if (isValidNumber) {
 				statusCode = HttpStatusCode.OK;
 			} else {
 				statusCode = HttpStatusCode.BadRequest;
 			}
 
-			return statusCode;
+			var responseBody = _arrival.GenerateAcknowledgementResponse (isValidNumber);
+
+			return new TextResponse (statusCode, responseBody);
 		}
 	}
 }
