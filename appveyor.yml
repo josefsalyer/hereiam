@@ -1,4 +1,8 @@
 version: 1.0.{build}
+branches:
+  only:
+  - develop
+  - feature/*
 before_build:
 - nuget restore ./HereIAm/HereIAm.sln
 build:
