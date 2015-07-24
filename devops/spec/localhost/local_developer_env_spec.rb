@@ -27,8 +27,8 @@ describe "local environment" do
     it { should contain 'gem: --user-install'}
   end
 
-  describe command('java -version'), :if => os[:family] == 'darwin' do
-    its(:stderr) {should contain('java version "1.8.0_45"') }
+  describe command('/usr/bin/mono --version'), :if => os[:family] == 'darwin' do
+    its(:stdout) {should contain('Mono JIT compiler version 4.0.2') }
   end
 
   describe file(ENV["HOME"] + '/.gem/ruby/2.0.0/bin'), :if => os[:family] == 'darwin' do
