@@ -8,3 +8,5 @@ build_script:
 - msbuild "HereIAm\HereIAm.sln" /verbosity:minimal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
 test_script:
 - nunit-console "HereIAm\HereIAm.Test\bin\Debug\HereIAm.Test.dll"
+build:
+  publish_azure: true
