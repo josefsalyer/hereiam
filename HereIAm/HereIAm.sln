@@ -32,4 +32,12 @@ Global
 		{B4296125-C186-43DE-8900-93F659D2EE03}.Release|x86.ActiveCfg = Release|Any CPU
 		{B4296125-C186-43DE-8900-93F659D2EE03}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		Policies = $0
+		$0.VersionControlPolicy = $1
+		$1.CommitMessageStyle = $2
+		$2.LastFilePostfix = "@:\n  "
+		$2.IncludeDirectoryPaths = True
+		$1.inheritsSet = Mono
+	EndGlobalSection
 EndGlobal
