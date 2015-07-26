@@ -18,6 +18,7 @@ here i am
 - MonoSDK [http://download.mono-project.com/archive/4.0.2/macos-10-x86/MonoFramework-MDK-4.0.2.5.macos10.xamarin.x86.pkg](http://download.mono-project.com/archive/4.0.2/macos-10-x86/MonoFramework-MDK-4.0.2.5.macos10.xamarin.x86.pkg)
 - Xamarin Studio [http://download.xamarin.com/studio/Mac/XamarinStudio-5.9.2.4-0.dmg](http://download.xamarin.com/studio/Mac/XamarinStudio-5.9.2.4-0.dmg)
 
+[Setup mono to use nancy as a web server](mono_how_to_get_started.md)
 
 # set up environment
 
