@@ -10,10 +10,10 @@
 
 5)  Search “Nancey.Hosting.Self” and add
 
-6)  Edit “Program.cs” and add the following in the Main method:\
-    ![](media/image1.tiff)
+6)  Edit “Program.cs” and add the following in the Main method:
+    ![](docs/edit_main_method.png)
 
-7)  Create a class names “LlamaModule.cs” with:\
-    ![](media/image2.tiff)
+7)  Create a class names “LlamaModule.cs” with:
+    ![](docs/nancy_setup.png)
 
 8)  Build and debug, open browser to “http://localhost:8080”
