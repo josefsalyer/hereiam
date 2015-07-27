@@ -16,7 +16,7 @@ namespace HereIAm
 			_visitorState = new Dictionary<string, Visitor> ();
 		}
 
-		public void OnVisiterAdded(VisitorEventArgs e)
+		public void OnVisitorAdded(VisitorEventArgs e)
 		{
 			var handler = VisitorAdded;
 			if (handler != null)
@@ -31,7 +31,7 @@ namespace HereIAm
 				throw new ArgumentNullException ("visitor");
 
 			_visitorState.Add (visitor.PhoneNumber, visitor);
-			OnVisiterAdded (new VisitorEventArgs(visitor.PhoneNumber));
+			OnVisitorAdded (new VisitorEventArgs(visitor.PhoneNumber));
 		}
 
 		public virtual Visitor GetVisitor(string phoneNumber) 

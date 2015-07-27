@@ -6,6 +6,7 @@ namespace HereIAm.Dto
 	{
 		public string Name { get; set; }
 		public string PhoneNumber { get; set; } 
+		public string ForHost { get; set; } 
 
 		public Visitor()
 		{
@@ -15,6 +16,14 @@ namespace HereIAm.Dto
 		{
 			Name = name;
 			PhoneNumber = phoneNumber;
+			ForHost = null;
+		}
+
+		public Visitor (string name, string phoneNumber, string forHost)
+		{
+			Name = name;
+			PhoneNumber = phoneNumber;
+			ForHost = forHost;
 		}
 
 		#region IEquatable implementation
@@ -25,6 +34,7 @@ namespace HereIAm.Dto
 			var hash = 0;
 			hash ^= (Name != null) ? Name.GetHashCode() : 0;
 			hash ^= (PhoneNumber != null) ? PhoneNumber.GetHashCode() : 0;
+			hash ^= (ForHost != null) ? ForHost.GetHashCode () : 0;
 			return hash;
 		}
 
@@ -47,6 +57,9 @@ namespace HereIAm.Dto
 			equals &= (PhoneNumber != null) ? 
 				PhoneNumber.Equals(other.PhoneNumber) : 
 				PhoneNumber == other.PhoneNumber;
+			equals &= (ForHost != null) ? 
+				ForHost.Equals(other.ForHost) : 
+				ForHost == other.ForHost;
 			return equals;
 		}
 

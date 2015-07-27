@@ -74,6 +74,12 @@ namespace HereIAm.Test
 			// Assert
 			CollectionAssert.AreEqual (expected, results);
 		}
+
+		[Test]
+		public void HostIsNotifiedOfVisitor()
+		{
+			
+		}
 	}
 }
 
