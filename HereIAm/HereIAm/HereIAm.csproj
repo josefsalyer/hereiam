@@ -40,6 +40,9 @@
     <Compile Include="Modules\RootModule.cs" />
     <Compile Include="Arrival.cs" />
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="HostNotifier.cs" />
+    <Compile Include="VisitorEventArgs.cs" />
+    <Compile Include="VisitorManager.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

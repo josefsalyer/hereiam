@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text.RegularExpressions;
+using HereIAm.Dto;
 
 namespace HereIAm
 {
@@ -12,6 +13,16 @@ namespace HereIAm
 		private static readonly Regex _phonePattern = 
 			new Regex (@"^\(?\d{3}\)?-? ?\d{3}-? ?-?\d{4}$");
 
+		private VisitorManager _visitorManager;
+
+		public Arrival(VisitorManager visitorManager)
+		{
+			if (visitorManager == null)
+				throw new ArgumentNullException ("visitorManager");
+
+			_visitorManager = visitorManager;
+		}
+
 		public bool ValidatePhoneNumber(string phoneNumber)
 		{
 			return _phonePattern.IsMatch (phoneNumber);
@@ -22,6 +33,14 @@ namespace HereIAm
 			if (isValidPhoneNumber)
 				return VALID_ACK_MESSAGE;
 			return INVALID_ACK_MESSAGE;
+		}
+
+		public void MarkAsArrived(Visitor visitor)
+		{
+			if (visitor == null)
+				throw new ArgumentNullException ("visitor");
+
+			_visitorManager.AddVisitor (visitor);
 		}
 	}
 }
