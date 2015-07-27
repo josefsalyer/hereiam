@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Mono.Unix;
+using Mono.Unix.Native;
+using System;
 using Nancy.Hosting.Self;
 
 namespace HereIAm.SelfHost
@@ -7,13 +9,33 @@ namespace HereIAm.SelfHost
 	{
 		public static void Main (string[] args)
 		{
-			using (var host = new NancyHost (new Uri("http://localhost:4567/"))) {
-				// Console.Write ("Starting Nancy Host...");
-				host.Start ();
-				// Console.WriteLine (" Done!");
-				// Console.Write ("Press any key to stop.");
-				// Console.ReadKey ();
-			}
+				var uri = "http://localhost:4567";
+	            Console.WriteLine("Starting Nancy on " + uri);
+
+	            // initialize an instance of NancyHost
+	            var host = new NancyHost(new Uri(uri));
+	            host.Start();  // start hosting
+
+	            // check if we're running on mono
+	            if (Type.GetType("Mono.Runtime") != null)
+	            {
+	                // on mono, processes will usually run as daemons - this allows you to listen
+	                // for termination signals (ctrl+c, shutdown, etc) and finalize correctly
+	                UnixSignal.WaitAny(new[] {
+	                    new UnixSignal(Signum.SIGINT),
+	                    new UnixSignal(Signum.SIGTERM),
+	                    new UnixSignal(Signum.SIGQUIT),
+	                    new UnixSignal(Signum.SIGHUP)
+	                });
+	            }
+	            else
+	            {
+	                Console.ReadLine();
+	            }
+
+	            Console.WriteLine("Stopping Nancy");
+	            host.Stop();  // stop hosting
+
 		}
 	}
 }
