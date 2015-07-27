@@ -4,8 +4,12 @@ namespace HereIAm.Dto
 {
 	public class Visitor : IEquatable<Visitor>
 	{
-		public string Name { get; }
-		public string PhoneNumber { get; } 
+		public string Name { get; set; }
+		public string PhoneNumber { get; set; } 
+
+		public Visitor()
+		{
+		}
 
 		public Visitor (string name, string phoneNumber)
 		{

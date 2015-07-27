@@ -17,7 +17,7 @@ namespace HereIAm
 
 			// Setup routes
 			Post ["/{phoneNumber}"] = param => {
-				var visitorParam = new Visitor (param["name"], param["phoneNumber"]);
+				var visitorParam = this.Bind<Visitor> ();
 				return PostArrival (visitorParam);
 			};
 		}
