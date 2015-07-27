@@ -47,10 +47,13 @@ namespace HereIAm.Test
 		}
 
 		[Test]
-		public void UserArrivesWithInvalidPhoneNumberBadCharPostReturnsInvalid() {
+		public void UserArrivesWithValidNameAndInvalidPhoneNumberBadCharPostReturnsInvalid() {
 			// Act
+			var jsonName = "{'name':'james'}";
 			var results = _client.Post ("/arrival/BADBEEF123", x => {
 				x.HttpRequest ();
+				x.Header ("Content-Type", "application/json");
+				x.Body(jsonName);
 			});
 
 			// Assert
