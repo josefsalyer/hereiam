@@ -1,0 +1,16 @@
+server {
+    listen       80;
+    server_name  hereiam.local;
+    root /var/www/hereiam;
+
+    location /Content/ {
+        alias /var/www/hereiam/Content/;
+        location ~*  \.(jpg|jpeg|png|gif|ico|css|js|ttf)$ {
+            expires 365d;
+        }
+    }
+
+    location / {
+            proxy_pass http://127.0.0.1:4567;
+    }
+}

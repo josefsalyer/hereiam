@@ -22,7 +22,8 @@ Vagrant.configure(2) do |config|
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
-  # config.vm.network "forwarded_port", guest: 80, host: 8080
+  config.vm.network "forwarded_port", guest: 80, host: 8080
+  config.vm.network "forwarded_port", guest: 4567, host: 4567
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
@@ -37,7 +38,7 @@ Vagrant.configure(2) do |config|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-  config.vm.synced_folder "../HereIAm", "/vagrant/HereIam"
+  config.vm.synced_folder "../HereIAm", "/vagrant/HereIAm"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -72,21 +73,45 @@ Vagrant.configure(2) do |config|
     #install a webserver
     sudo apt-get -y install nginx
 
-    #start nginx
-    sudo service nginx start
-
     # set the mono repo
-    # sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
-    # echo "deb http://download.mono-project.com/repo/debian wheezy main" | sudo tee /etc/apt/sources.list.d/mono-xamarin.list
+    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+    echo "deb http://download.mono-project.com/repo/debian wheezy main" | sudo tee /etc/apt/sources.list.d/mono-xamarin.list
     
-    
-    # # get mono complete
-    # sudo apt-get install mono-devel mono-complete
+    #for ubuntu 12
+    echo "deb http://download.mono-project.com/repo/debian wheezy-libtiff-compat main" | sudo tee -a /etc/apt/sources.list.d/mono-xamarin.list
 
+    #update apt-get
+    sudo apt-get update
+
+    # # get mono complete
+    sudo apt-get install -y mono-devel mono-complete nuget
     
+    #make the static content root
+    sudo mkdir -p  /var/www/hereiam/Content
+
+    #remove the default stuff
+    sudo rm -f /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+
+    #write the nginx config into sites-available
+    sudo cp /vagrant/configs/hereiam.nginx /etc/nginx/sites-available/hereiam
+
+    # link it to sites available
+    sudo ln -s /etc/nginx/sites-available/hereiam /etc/nginx/sites-enabled/hereiam
+
+    #recompile
+    sudo xbuild /vagrant/HereIAm/HereIAm.sln
 
     # #install supervisor
-    # sudo apt-get install supervisor
+    sudo apt-get -y install supervisor
+
+    #copy the config over
+    sudo cp /vagrant/configs/hereiam.supervisor /etc/supervisor/conf.d/hereiam.conf
+
+    #start supervisor
+    sudo supervisord
+
+    #start nginx
+    sudo service nginx start
 
 
   SHELL
