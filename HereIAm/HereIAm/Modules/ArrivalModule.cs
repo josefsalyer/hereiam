@@ -17,7 +17,22 @@ namespace HereIAm
 
 			// Setup routes
 			Post ["/{phoneNumber}"] = param => {
-				var visitorParam = this.Bind<Visitor> ();
+				Visitor visitorParam;
+				try
+				{
+					visitorParam = this.Bind<Visitor> ();
+				}
+				catch (Exception ex)
+				{
+					// Check if Nancy exception.
+					if ((ex as System.Reflection.TargetInvocationException) != null)
+						return new TextResponse (HttpStatusCode.BadRequest);
+					// Check if library exception.
+					if ((ex as ArgumentException) != null)						
+						return new TextResponse (HttpStatusCode.BadRequest, ex.Message);
+					// Something we don't know about.
+					throw;
+				}
 				return PostArrival (visitorParam);
 			};
 		}

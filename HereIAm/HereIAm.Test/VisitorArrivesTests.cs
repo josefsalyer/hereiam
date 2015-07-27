@@ -73,6 +73,34 @@ namespace HereIAm.Test
 			// Assert
 			Assert.AreEqual (HttpStatusCode.BadRequest, results.StatusCode);
 		}
+
+		[Test] 
+		public void UserArrivesWithBlankNameAndInvalidPhoneNumberTooShort(){
+			//Act
+			var jsonName = "{'name':''}";
+			var results = _client.Post ("/arrival/012345678901", x => {
+				x.HttpRequest ();
+				x.Header ("Content-Type", "application/json");
+				x.Body (jsonName);
+			});
+
+			//Assert
+			Assert.AreEqual (HttpStatusCode.BadRequest, results.StatusCode);
+		}
+
+		[Test]
+		public void UserArrivesWithBlankNameAndValidPhoneNumber(){
+			//Act
+			var jsonName = "{'name':''}";
+			var results = _client.Post ("/arrival/5551234567", x => {
+				x.HttpRequest ();
+				x.Header ("Content-Type", "application/json");
+				x.Body (jsonName);
+			});
+
+			//Assert
+			Assert.AreEqual (HttpStatusCode.BadRequest, results.StatusCode);
+		}
 	}
 }
 
