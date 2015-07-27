@@ -18,11 +18,14 @@ namespace HereIAm.Test
 		}
 
 		[Test]
-		public void UserArrivesWihValidPhoneNumberPostReturnsOK ()
+		public void UserArrivesWihValidPhoneNumberAndNamePostReturnsOK ()
 		{
 			// Act
+			var jsonName = "{'name':'james'}";
 			var results = _client.Post ("/arrival/5551234567", x => {
 				x.HttpRequest ();
+				x.Header ("Content-Type", "application/json");
+				x.Body(jsonName);
 			});
 
 			// Assert
