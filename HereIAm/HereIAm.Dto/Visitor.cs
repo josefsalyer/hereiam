@@ -4,8 +4,18 @@ namespace HereIAm.Dto
 {
 	public class Visitor : IEquatable<Visitor>
 	{
-		public string Name { get; set; }
+		public string Name
+		{
+			get { return _name; }
+			set {
+				if (String.IsNullOrWhiteSpace (value))
+					throw new ArgumentException ("Error: Blank Name");
+				_name = value;
+			}
+		}
 		public string PhoneNumber { get; set; } 
+
+		private string _name;
 
 		public Visitor()
 		{

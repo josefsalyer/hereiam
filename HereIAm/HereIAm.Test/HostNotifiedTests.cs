@@ -48,8 +48,9 @@ namespace HereIAm.Test
 		{
 			
 			// Arrange
-			const string VISITOR_NAME = null; //"John Doe";
+			const string VISITOR_NAME = "John Doe";
 			const string PHONE_NUMBER = "5551235678";
+			var jsonName = "{'name':'"+VISITOR_NAME+"'}";
 
 			var bootstrapper = new Bootstrapper ();
 			var client = new Browser (bootstrapper);
@@ -69,6 +70,8 @@ namespace HereIAm.Test
 			// Act
 			client.Post (String.Format ("/arrival/{0}", PHONE_NUMBER), x => {
 				x.HttpRequest ();
+				x.Header ("Content-Type", "application/json");
+				x.Body (jsonName);
 			});
 		
 			// Assert

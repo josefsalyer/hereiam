@@ -18,11 +18,14 @@ namespace HereIAm.Test
 		}
 
 		[Test]
-		public void UserArrivesWihValidPhoneNumberPostReturnsOK ()
+		public void UserArrivesWihValidPhoneNumberAndNamePostReturnsOK ()
 		{
 			// Act
+			var jsonName = "{'name':'james'}";
 			var results = _client.Post ("/arrival/5551234567", x => {
 				x.HttpRequest ();
+				x.Header ("Content-Type", "application/json");
+				x.Body(jsonName);
 			});
 
 			// Assert
@@ -32,8 +35,11 @@ namespace HereIAm.Test
 		[Test]
 		public void UserArrivesWithInvalidPhoneNumberTooShortPostReturnsInvalid () {
 			//Act
+			var jsonName = "{'name':'james'}";
 			var results = _client.Post ("/arrival/1234567", x => {
 				x.HttpRequest ();
+				x.Header ("Content-Type", "application/json");
+				x.Body(jsonName);
 			});
 
 			// Assert
@@ -41,10 +47,13 @@ namespace HereIAm.Test
 		}
 
 		[Test]
-		public void UserArrivesWithInvalidPhoneNumberBadCharPostReturnsInvalid() {
+		public void UserArrivesWithValidNameAndInvalidPhoneNumberBadCharPostReturnsInvalid() {
 			// Act
+			var jsonName = "{'name':'james'}";
 			var results = _client.Post ("/arrival/BADBEEF123", x => {
 				x.HttpRequest ();
+				x.Header ("Content-Type", "application/json");
+				x.Body(jsonName);
 			});
 
 			// Assert
@@ -52,13 +61,44 @@ namespace HereIAm.Test
 		}
 
 		[Test]
-		public void UserArrivesWithInvalidPhoneNumberTooLongPostReturnsInvalid() {
+		public void UserArrivesWithValidNameAndInvalidPhoneNumberTooLongPostReturnsInvalid() {
 			// Act
+			var jsonName = "{'name':'james'}";
 			var results = _client.Post ("/arrival/012345678901", x => {
 				x.HttpRequest ();
+				x.Header ("Content-Type", "application/json");
+				x.Body(jsonName);
 			});
 
 			// Assert
+			Assert.AreEqual (HttpStatusCode.BadRequest, results.StatusCode);
+		}
+
+		[Test] 
+		public void UserArrivesWithBlankNameAndInvalidPhoneNumberTooShort(){
+			//Act
+			var jsonName = "{'name':''}";
+			var results = _client.Post ("/arrival/012345678901", x => {
+				x.HttpRequest ();
+				x.Header ("Content-Type", "application/json");
+				x.Body (jsonName);
+			});
+
+			//Assert
+			Assert.AreEqual (HttpStatusCode.BadRequest, results.StatusCode);
+		}
+
+		[Test]
+		public void UserArrivesWithBlankNameAndValidPhoneNumber(){
+			//Act
+			var jsonName = "{'name':''}";
+			var results = _client.Post ("/arrival/5551234567", x => {
+				x.HttpRequest ();
+				x.Header ("Content-Type", "application/json");
+				x.Body (jsonName);
+			});
+
+			//Assert
 			Assert.AreEqual (HttpStatusCode.BadRequest, results.StatusCode);
 		}
 	}
