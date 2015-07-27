@@ -1,6 +1,6 @@
 [program:hereiam]
-command=mono /vagrant/HereIAm/HereIAm.SelfHost/bin/Debug/HereIAm.SelfHost.exe -d
-user=www-data
+command=/usr/bin/mono /vagrant/HereIAm/HereIAm.SelfHost/bin/Debug/HereIAm.SelfHost.exe -d
+user=vagrant
 stderr_logfile = /var/log/supervisor/hereiam-err.log
 stdout_logfile = /var/log/supervisor/hereiam-stdout.log
 directory=/var/www/hereiam/

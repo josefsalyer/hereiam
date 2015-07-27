@@ -8,11 +8,11 @@ namespace HereIAm.SelfHost
 		public static void Main (string[] args)
 		{
 			using (var host = new NancyHost (new Uri("http://localhost:4567/"))) {
-				Console.Write ("Starting Nancy Host...");
+				// Console.Write ("Starting Nancy Host...");
 				host.Start ();
-				Console.WriteLine (" Done!");
-				Console.Write ("Press any key to stop.");
-				Console.ReadKey ();
+				// Console.WriteLine (" Done!");
+				// Console.Write ("Press any key to stop.");
+				// Console.ReadKey ();
 			}
 		}
 	}
