@@ -6,6 +6,17 @@ namespace HereIAm
 	{
 		public event EventHandler<VisitorEventArgs> VisitorArrived;
 
+		private VisitorManager _visitorManager;
+
+		public HostNotifier(VisitorManager visitorManager)
+		{
+			if (visitorManager == null)
+				throw new ArgumentNullException ("visitorManager");
+
+			_visitorManager = visitorManager;
+			_visitorManager.VisitorAdded += VisitorAdded;
+		}
+			
 		public void OnVisitorArrived(VisitorEventArgs e)
 		{
 			var handler = VisitorArrived;
@@ -13,6 +24,11 @@ namespace HereIAm
 			{
 				handler(this, e);
 			}
+		}
+
+		private void VisitorAdded(object sender, VisitorEventArgs e)
+		{
+			OnVisitorArrived (e);
 		}
 	}
 }

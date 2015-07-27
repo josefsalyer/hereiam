@@ -4,8 +4,8 @@ namespace HereIAm.Dto
 {
 	public class Visitor : IEquatable<Visitor>
 	{
-		public string Name { get; set; }
-		public string PhoneNumber { get; set; } 
+		public string Name { get; }
+		public string PhoneNumber { get; } 
 
 		public Visitor (string name, string phoneNumber)
 		{
@@ -19,8 +19,8 @@ namespace HereIAm.Dto
 		public override int GetHashCode()
 		{
 			var hash = 0;
-			hash ^= Name.GetHashCode();
-			hash ^= PhoneNumber.GetHashCode();
+			hash ^= (Name != null) ? Name.GetHashCode() : 0;
+			hash ^= (PhoneNumber != null) ? PhoneNumber.GetHashCode() : 0;
 			return hash;
 		}
 
@@ -37,8 +37,12 @@ namespace HereIAm.Dto
 				return false;
 
 			var equals = true;
-			equals &= Name.Equals(other.Name);
-			equals &= PhoneNumber.Equals(other.PhoneNumber);
+			equals &= (Name != null) ? 
+				Name.Equals(other.Name) : 
+				Name == other.Name;
+			equals &= (PhoneNumber != null) ? 
+				PhoneNumber.Equals(other.PhoneNumber) : 
+				PhoneNumber == other.PhoneNumber;
 			return equals;
 		}
 

@@ -1,6 +1,8 @@
 ﻿using System;
 using Nancy;
+using Nancy.ModelBinding;
 using Nancy.Responses;
+using HereIAm.Dto;
 
 namespace HereIAm
 {
@@ -14,15 +16,20 @@ namespace HereIAm
 			_arrival = arrival;
 
 			// Setup routes
-			Post ["/{phoneNumber}"] = param => PostArrival (param);
+			Post ["/{phoneNumber}"] = param => {
+				var visitorParam = new Visitor (param["name"], param["phoneNumber"]);
+				return PostArrival (visitorParam);
+			};
 		}
 
-		private Response PostArrival(DynamicDictionary param) {
+		private Response PostArrival(Visitor visitor) 
+		{
 			var statusCode = HttpStatusCode.InternalServerError;
 
-			var isValidPhoneNumber = _arrival.ValidatePhoneNumber (param ["phoneNumber"]);
+			var isValidPhoneNumber = _arrival.ValidatePhoneNumber (visitor.PhoneNumber);
 			if (isValidPhoneNumber) {
 				statusCode = HttpStatusCode.OK;
+				_arrival.MarkAsArrived (visitor);
 			} else {
 				statusCode = HttpStatusCode.BadRequest;
 			}
