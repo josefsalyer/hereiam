@@ -78,7 +78,7 @@ namespace HereIAm.Test
 		public void UserArrivesWithBlankNameAndInvalidPhoneNumberTooShort(){
 			//Act
 			var jsonName = "{'name':''}";
-			var results = _client.Post ("/arrival/012345678901", x => {
+			var results = _client.Post ("/person/012345678901/arrive", x => {
 				x.HttpRequest ();
 				x.Header ("Content-Type", "application/json");
 				x.Body (jsonName);
