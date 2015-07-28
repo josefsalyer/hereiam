@@ -8,7 +8,7 @@ namespace HereIAm
 {
 	public class Bootstrapper : DefaultNancyBootstrapper
 	{
-		public TinyIoCContainer Container { get; set; }
+		internal TinyIoCContainer Container { get; set; }
 
 		protected override void ConfigureApplicationContainer (TinyIoCContainer container)
 		{

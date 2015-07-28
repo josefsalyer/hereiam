@@ -14,7 +14,7 @@ using Nancy.Validation;
 using Nancy.Responses;
 
 
-public static class ModuleExtensions
+internal static class ModuleExtensions
 {
 	public static object RespondWithValidationFailureMessage(this Negotiator negotiate, ModelValidationResult validationResult)
 	{
