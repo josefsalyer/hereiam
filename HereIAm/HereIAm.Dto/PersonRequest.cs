@@ -2,7 +2,7 @@
 
 namespace HereIAm.Dto
 {
-	public class PersonReqest : IEquatable<PersonReqest>
+	public class PersonRequest : IEquatable<PersonRequest>
 	{
 		public string Name
 		{
@@ -17,11 +17,11 @@ namespace HereIAm.Dto
 
 		private string _name;
 
-		public PersonReqest()
+		public PersonRequest()
 		{
 		}
 
-		public PersonReqest (string name, string phoneNumber)
+		public PersonRequest (string name, string phoneNumber)
 		{
 			Name = name;
 			PhoneNumber = phoneNumber;
@@ -41,11 +41,11 @@ namespace HereIAm.Dto
 		/// <inheritdoc />
 		public override bool Equals(object obj)
 		{
-			return Equals(obj as PersonReqest);
+			return Equals(obj as PersonRequest);
 		}
 
 		/// <inheritdoc />
-		public bool Equals(PersonReqest other)
+		public bool Equals(PersonRequest other)
 		{
 			if (other == null)
 				return false;

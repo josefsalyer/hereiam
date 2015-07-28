@@ -35,7 +35,7 @@ namespace HereIAm
 			return INVALID_ACK_MESSAGE;
 		}
 
-		public void MarkAsArrived(PersonReqest visitor)
+		public void MarkAsArrived(PersonRequest visitor)
 		{
 			if (visitor == null)
 				throw new ArgumentNullException ("visitor");
