@@ -28,6 +28,16 @@ namespace HereIAm.Test
 			var db = new DBConnection ();
 			Assert.NotNull (db.Store);
 		}
+
+		[Test]
+		public void TestStoreIsConfigured ()
+		{
+			
+			var db = new DBConnection ();
+			var actual = db.Store.Url;
+			var expected = @"https://lrtconsulting-5noh.ravenhq.com/databases/lrtconsulting-hereiam";
+			Assert.AreEqual (expected, actual);
+		}
 	}
 }
 

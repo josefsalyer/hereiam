@@ -12,7 +12,12 @@ namespace HereIAm.DAL
 
 		public DBConnection ()
 		{
-			this.Store = new DocumentStore ();
+			this.Store = new DocumentStore
+				{
+					Url = "https://lrtconsulting-5noh.ravenhq.com/databases/lrtconsulting-hereiam",
+					ApiKey = "9db681e5-51c1-491a-b8ea-9dd8f12e09e0"
+				};
+			
 		}
 	}
 }
