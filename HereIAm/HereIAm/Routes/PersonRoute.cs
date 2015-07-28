@@ -20,7 +20,7 @@ namespace HereIAm
 			Post ["/{phoneNumber}/arrive"] = _ => {
 				try
 				{
-					var visitorParam = this.BindAndValidate<PersonReqest> ();
+					var visitorParam = this.BindAndValidate<PersonRequest> ();
 					if (ModelValidationResult.IsValid)
 						return PostArrival (visitorParam);
 					return HttpStatusCode.BadRequest;
