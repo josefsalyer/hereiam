@@ -2,6 +2,7 @@
 using Nancy;
 using Nancy.ModelBinding;
 using Nancy.Responses;
+using Nancy.Validation;
 using HereIAm.Dto;
 
 namespace HereIAm
@@ -17,10 +18,12 @@ namespace HereIAm
 
 			// Setup routes
 			Post ["/{phoneNumber}/arrive"] = _ => {
-				PersonReqest visitorParam;
 				try
 				{
-					visitorParam = this.Bind<PersonReqest> ();
+					var visitorParam = this.BindAndValidate<PersonReqest> ();
+					if (ModelValidationResult.IsValid)
+						return PostArrival (visitorParam);
+					return HttpStatusCode.BadRequest;
 				}
 				catch (Exception ex)
 				{
@@ -33,7 +36,6 @@ namespace HereIAm
 					// Something we don't know about.
 					throw;
 				}
-				return PostArrival (visitorParam);
 			};
 
 			Post ["/{phoneNumber/greeting"] = _ => {

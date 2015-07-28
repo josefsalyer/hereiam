@@ -4,15 +4,7 @@ namespace HereIAm.Dto
 {
 	public class PersonReqest : IEquatable<PersonReqest>
 	{
-		public string Name
-		{
-			get { return _name; }
-			set {
-				if (String.IsNullOrWhiteSpace (value))
-					throw new ArgumentException ("Error: Blank Name");
-				_name = value;
-			}
-		}
+		public string Name{ get; set; }
 		public string PhoneNumber { get; set; } 
 
 		private string _name;

@@ -14,7 +14,7 @@ namespace HereIAm.Test
 		public void InitializeTest()
 		{
 			// Arrange
-			_client = new Browser (new DefaultNancyBootstrapper ());
+			_client = new Browser (new Bootstrapper ());
 		}
 
 		[Test]
