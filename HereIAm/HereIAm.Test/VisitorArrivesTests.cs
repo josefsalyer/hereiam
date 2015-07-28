@@ -64,7 +64,7 @@ namespace HereIAm.Test
 		public void UserArrivesWithValidNameAndInvalidPhoneNumberTooLongPostReturnsInvalid() {
 			// Act
 			var jsonName = "{'name':'james'}";
-			var results = _client.Post ("/arrival/012345678901", x => {
+			var results = _client.Post ("/person/012345678901/arrive", x => {
 				x.HttpRequest ();
 				x.Header ("Content-Type", "application/json");
 				x.Body(jsonName);
