@@ -49,6 +49,7 @@
     <Compile Include="VisitorArrivesTests.cs" />
     <Compile Include="VisitorAckTests.cs" />
     <Compile Include="HostNotifiedTests.cs" />
+    <Compile Include="PersonTests.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

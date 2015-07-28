@@ -17,10 +17,10 @@ namespace HereIAm
 
 			// Setup routes
 			Post ["/{phoneNumber}"] = param => {
-				Visitor visitorParam;
+				Person visitorParam;
 				try
 				{
-					visitorParam = this.Bind<Visitor> ();
+					visitorParam = this.Bind<Person> ();
 				}
 				catch (Exception ex)
 				{
@@ -37,7 +37,7 @@ namespace HereIAm
 			};
 		}
 
-		private Response PostArrival(Visitor visitor) 
+		private Response PostArrival(Person visitor) 
 		{
 			var statusCode = HttpStatusCode.InternalServerError;
 
