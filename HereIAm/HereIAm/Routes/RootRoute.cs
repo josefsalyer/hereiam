@@ -3,9 +3,9 @@ using Nancy;
 
 namespace HereIAm
 {
-	public class RootModule : NancyModule
+	public class RootRoute : NancyModule
 	{
-		public RootModule ()
+		public RootRoute ()
 		{
 			Get ["/"] = parameter => {
 				return "Beep Boop";

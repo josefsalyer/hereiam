@@ -6,11 +6,11 @@ using HereIAm.Dto;
 
 namespace HereIAm
 {
-	public class ArrivalModule : NancyModule
+	public class ArrivalRoute : NancyModule
 	{
 		private Arrival _arrival = null;
 
-		public ArrivalModule (Arrival arrival) : base("/arrival")
+		public ArrivalRoute (Arrival arrival) : base("/arrival")
 		{
 			// Initialize class
 			_arrival = arrival;
