@@ -23,18 +23,11 @@ namespace HereIAm
 					var visitorParam = this.BindAndValidate<PersonReqest> ();
 					if (ModelValidationResult.IsValid)
 						return PostArrival (visitorParam);
-					return HttpStatusCode.BadRequest;
+					return Negotiate.RespondWithValidationFailureMessage (ModelValidationResult);
 				}
-				catch (Exception ex)
+				catch (ModelBindingException)
 				{
-					// Check if Nancy exception.
-					if ((ex as System.Reflection.TargetInvocationException) != null)
-						return new TextResponse (HttpStatusCode.BadRequest);
-					// Check if library exception.
-					if ((ex as ArgumentException) != null)						
-						return new TextResponse (HttpStatusCode.BadRequest, ex.Message);
-					// Something we don't know about.
-					throw;
+					return Negotiate.RespondWithValidationFailureMessage ("DTO binding failed");
 				}
 			};
 

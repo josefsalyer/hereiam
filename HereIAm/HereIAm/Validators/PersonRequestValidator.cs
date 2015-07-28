@@ -9,8 +9,8 @@ namespace HereIAm
 	{
 		public PersonRequestValidator ()
 		{
-			RuleFor (req => req.Name).Must (x => !String.IsNullOrWhiteSpace (x));
-			RuleFor (req => req.PhoneNumber).Must (x => !String.IsNullOrWhiteSpace (x));
+			RuleFor (req => req.Name).Must (x => !String.IsNullOrWhiteSpace (x)).WithMessage ("Error: Bad name");
+			RuleFor (req => req.PhoneNumber).Must (x => !String.IsNullOrWhiteSpace (x)).WithMessage ("Error: Bad phone number");
 		}
 	}
 }
