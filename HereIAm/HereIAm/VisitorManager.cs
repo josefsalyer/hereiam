@@ -9,11 +9,11 @@ namespace HereIAm
 	{
 		public event EventHandler<VisitorEventArgs> VisitorAdded;
 
-		private Dictionary<string, Visitor> _visitorState;
+		private Dictionary<string, PersonReqest> _visitorState;
 
 		public VisitorManager()
 		{
-			_visitorState = new Dictionary<string, Visitor> ();
+			_visitorState = new Dictionary<string, PersonReqest> ();
 		}
 
 		public void OnVisiterAdded(VisitorEventArgs e)
@@ -25,7 +25,7 @@ namespace HereIAm
 			}
 		}
 
-		public void AddVisitor(Visitor visitor)
+		public void AddVisitor(PersonReqest visitor)
 		{
 			if (visitor == null)
 				throw new ArgumentNullException ("visitor");
@@ -34,7 +34,7 @@ namespace HereIAm
 			OnVisiterAdded (new VisitorEventArgs(visitor.PhoneNumber));
 		}
 
-		public virtual Visitor GetVisitor(string phoneNumber) 
+		public virtual PersonReqest GetVisitor(string phoneNumber) 
 		{
 			if (String.IsNullOrWhiteSpace (phoneNumber))
 				throw new ArgumentException ("phoneNumber");
