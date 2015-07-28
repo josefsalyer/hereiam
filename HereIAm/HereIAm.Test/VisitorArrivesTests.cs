@@ -50,7 +50,7 @@ namespace HereIAm.Test
 		public void UserArrivesWithValidNameAndInvalidPhoneNumberBadCharPostReturnsInvalid() {
 			// Act
 			var jsonName = "{'name':'james'}";
-			var results = _client.Post ("/arrival/BADBEEF123", x => {
+			var results = _client.Post ("/person/BADBEEF123/arrive", x => {
 				x.HttpRequest ();
 				x.Header ("Content-Type", "application/json");
 				x.Body(jsonName);
