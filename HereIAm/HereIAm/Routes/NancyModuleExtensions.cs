@@ -30,8 +30,7 @@ public static class ModuleExtensions
 		return new TextResponse(HttpStatusCode.BadRequest, model.Messages.FirstOrDefault ());
 	}
 }
-
-
+	
 internal class ValidationFailedResponse
 {
 	public List<string> Messages { get; set; }

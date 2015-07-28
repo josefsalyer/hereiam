@@ -25,7 +25,7 @@ namespace HereIAm.Test
 			var notifier = new HostNotifier (mockVisitorManager);
 			var results = new List<PersonRequest> ();
 			var expected = new List<PersonRequest> {
-				new PersonRequest () { Name = VISITOR_NAME, PhoneNumber = PHONE_NUMBER }
+				new PersonRequest { Name = VISITOR_NAME, PhoneNumber = PHONE_NUMBER }
 			};
 
 
