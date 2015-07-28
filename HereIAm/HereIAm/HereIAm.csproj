@@ -41,8 +41,8 @@
     <Compile Include="HostNotifier.cs" />
     <Compile Include="VisitorEventArgs.cs" />
     <Compile Include="VisitorManager.cs" />
-    <Compile Include="Routes\ArrivalRoute.cs" />
     <Compile Include="Routes\RootRoute.cs" />
+    <Compile Include="Routes\PersonRoute.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

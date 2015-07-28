@@ -22,7 +22,7 @@ namespace HereIAm.Test
 		{
 			// Act
 			var jsonName = "{'name':'james'}";
-			var results = _client.Post ("/arrival/5551234567", x => {
+			var results = _client.Post ("/person/5551234567/arrive", x => {
 				x.HttpRequest ();
 				x.Header ("Content-Type", "application/json");
 				x.Body(jsonName);
@@ -36,7 +36,7 @@ namespace HereIAm.Test
 		public void UserArrivesWithInvalidPhoneNumberTooShortPostReturnsInvalid () {
 			//Act
 			var jsonName = "{'name':'james'}";
-			var results = _client.Post ("/arrival/1234567", x => {
+			var results = _client.Post ("/person/1234567/arrive", x => {
 				x.HttpRequest ();
 				x.Header ("Content-Type", "application/json");
 				x.Body(jsonName);
@@ -50,7 +50,7 @@ namespace HereIAm.Test
 		public void UserArrivesWithValidNameAndInvalidPhoneNumberBadCharPostReturnsInvalid() {
 			// Act
 			var jsonName = "{'name':'james'}";
-			var results = _client.Post ("/arrival/BADBEEF123", x => {
+			var results = _client.Post ("/person/BADBEEF123/arrive", x => {
 				x.HttpRequest ();
 				x.Header ("Content-Type", "application/json");
 				x.Body(jsonName);
@@ -64,7 +64,7 @@ namespace HereIAm.Test
 		public void UserArrivesWithValidNameAndInvalidPhoneNumberTooLongPostReturnsInvalid() {
 			// Act
 			var jsonName = "{'name':'james'}";
-			var results = _client.Post ("/arrival/012345678901", x => {
+			var results = _client.Post ("/person/012345678901/arrive", x => {
 				x.HttpRequest ();
 				x.Header ("Content-Type", "application/json");
 				x.Body(jsonName);
@@ -78,7 +78,7 @@ namespace HereIAm.Test
 		public void UserArrivesWithBlankNameAndInvalidPhoneNumberTooShort(){
 			//Act
 			var jsonName = "{'name':''}";
-			var results = _client.Post ("/arrival/012345678901", x => {
+			var results = _client.Post ("/person/012345678901/arrive", x => {
 				x.HttpRequest ();
 				x.Header ("Content-Type", "application/json");
 				x.Body (jsonName);
@@ -92,7 +92,7 @@ namespace HereIAm.Test
 		public void UserArrivesWithBlankNameAndValidPhoneNumber(){
 			//Act
 			var jsonName = "{'name':''}";
-			var results = _client.Post ("/arrival/5551234567", x => {
+			var results = _client.Post ("/person/5551234567/arrive", x => {
 				x.HttpRequest ();
 				x.Header ("Content-Type", "application/json");
 				x.Body (jsonName);

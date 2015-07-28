@@ -6,21 +6,21 @@ using HereIAm.Dto;
 
 namespace HereIAm
 {
-	public class ArrivalRoute : NancyModule
+	public class PersonRoute : NancyModule
 	{
 		private Arrival _arrival = null;
 
-		public ArrivalRoute (Arrival arrival) : base("/arrival")
+		public PersonRoute (Arrival arrival) : base("/person")
 		{
 			// Initialize class
 			_arrival = arrival;
 
 			// Setup routes
-			Post ["/{phoneNumber}"] = param => {
-				Visitor visitorParam;
+			Post ["/{phoneNumber}/arrive"] = _ => {
+				PersonRequest visitorParam;
 				try
 				{
-					visitorParam = this.Bind<Visitor> ();
+					visitorParam = this.Bind<PersonRequest> ();
 				}
 				catch (Exception ex)
 				{
@@ -35,9 +35,13 @@ namespace HereIAm
 				}
 				return PostArrival (visitorParam);
 			};
+
+			Post ["/{phoneNumber/greeting"] = _ => {
+				throw new NotImplementedException (); 
+			};
 		}
 
-		private Response PostArrival(Visitor visitor) 
+		private Response PostArrival(PersonRequest visitor) 
 		{
 			var statusCode = HttpStatusCode.InternalServerError;
 
