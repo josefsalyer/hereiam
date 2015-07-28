@@ -2,9 +2,28 @@
 using NUnit.Framework;
 using HereIAm.DAL;
 using Raven.Client.Document;
+using Raven.Client;
 
 namespace HereIAm.Test
 {
+	public class Person
+	{
+		public String Name  {
+			get;
+			set;
+		}
+
+		public String PhoneNumber {
+			get;
+			set;
+		}
+
+		public String Id {
+			get;
+			set;
+		}
+	}
+
 	[TestFixture]
 	public class DBConnectionTests
 	{
@@ -49,25 +68,28 @@ namespace HereIAm.Test
 			var expected = @"9db681e5-51c1-491a-b8ea-9dd8f12e09e0";
 			Assert.AreEqual (expected, actual);
 
+
 		}
 
-		[Test]
-		[ExpectedException(typeof(InvalidOperationException))]
-		public void TestStoreIsInitialized()
-		{	
-			var db = new DBConnection ();
-			Assert.Throws (typeof (System.InvalidOperationException), new TestDelegate (DelegateMethod(db)));
-
-			db.Store.Initialize ();
-
-			Assert.DoesNotThrow (new TestDelegate (DelegateMethod(db)));
-		}
-
-		dynamic DelegateMethod(DBConnection dbconn){
+//		[Test]
+//		public void TestStoreSessionLifeCycle ()
+//		{
+//			var db = new DBConnection ();
+//
+//			IDocumentSession session = db.Store.OpenSession ();
+//
+//			var person = new Person {
+//				Name = "Jimmy",
+//				PhoneNumber = "6148675309"
+//			};
+//
+//			session.Store (person);
+//			Assert.NotNull (person.Id);
+//
+//			session.Dispose ();
+//
+//		}
 			
-			return dbconn.Store.DatabaseCommands;
-
-		}
 
 	}
 }
