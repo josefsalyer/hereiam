@@ -21,7 +21,7 @@ namespace HereIAm.Test
 		public void AcceptedVisitorIsSentAnAcknowledgementMessage()
 		{
 			// Act
-			var results = _client.Post ("/arrival/5551234567", x => {
+			var results = _client.Post ("/person/5551234567/arrive", x => {
 				x.HttpRequest ();
 			});
 
