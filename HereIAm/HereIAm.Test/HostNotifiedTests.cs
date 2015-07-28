@@ -68,7 +68,7 @@ namespace HereIAm.Test
 			};
 
 			// Act
-			client.Post (String.Format ("/arrival/{0}", PHONE_NUMBER), x => {
+			client.Post (String.Format ("/person/{0}/arrive", PHONE_NUMBER), x => {
 				x.HttpRequest ();
 				x.Header ("Content-Type", "application/json");
 				x.Body (jsonName);
