@@ -13,6 +13,7 @@ fswatch -o . -e "*.cs" | (while read ; do
 		echo "evaluation good"
 		xbuild ./HereIAm/HereIAm.sln && 
 		nunit-console ./HereIAm/HereIAm.Test/bin/Debug/HereIAm.Test.dll
+		 
 		TESTED=1
 		sleep 5
 	else
