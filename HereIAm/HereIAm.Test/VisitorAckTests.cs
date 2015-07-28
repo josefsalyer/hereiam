@@ -21,8 +21,11 @@ namespace HereIAm.Test
 		public void AcceptedVisitorIsSentAnAcknowledgementMessage()
 		{
 			// Act
+			var jsonName = "{'name':'james'}";
 			var results = _client.Post ("/person/5551234567/arrive", x => {
 				x.HttpRequest ();
+				x.Header ("Content-Type", "application/json");
+				x.Body(jsonName);
 			});
 
 			// Arrange
@@ -37,8 +40,11 @@ namespace HereIAm.Test
 		public void InvalidVisitorIsSentARejectionAcknowledgement()
 		{
 			//Act
+			var jsonName = "{'name':'james'}";
 			var results = _client.Post ("/person/55512345679877/arrive", x => {
 				x.HttpRequest ();
+				x.Header ("Content-Type", "application/json");
+				x.Body(jsonName);
 			});
 
 			//Arrange

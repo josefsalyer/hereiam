@@ -19,13 +19,13 @@ namespace HereIAm.Test
 
 			// Mocking
 			var mockVisitorManager = Mock.Of<VisitorManager> (vm =>
-				vm.GetVisitor(PHONE_NUMBER) == new PersonReqest(VISITOR_NAME, PHONE_NUMBER));
+				vm.GetVisitor(PHONE_NUMBER) == new PersonReqest { Name = VISITOR_NAME, PhoneNumber = PHONE_NUMBER });
 			
 			// Arrange
 			var notifier = new HostNotifier (mockVisitorManager);
 			var results = new List<PersonReqest> ();
 			var expected = new List<PersonReqest> {
-				new PersonReqest(VISITOR_NAME, PHONE_NUMBER)
+				new PersonReqest { Name = VISITOR_NAME, PhoneNumber = PHONE_NUMBER }
 			};
 
 
@@ -58,7 +58,7 @@ namespace HereIAm.Test
 			var notifier = new HostNotifier (visitorManager);
 			var results = new List<PersonReqest> ();
 			var expected = new List<PersonReqest> {
-				new PersonReqest(VISITOR_NAME, PHONE_NUMBER)
+				new PersonReqest { Name = VISITOR_NAME, PhoneNumber = PHONE_NUMBER }
 			};
 
 			// Watch for event

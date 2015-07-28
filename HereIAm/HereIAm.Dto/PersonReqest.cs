@@ -7,18 +7,6 @@ namespace HereIAm.Dto
 		public string Name{ get; set; }
 		public string PhoneNumber { get; set; } 
 
-		private string _name;
-
-		public PersonReqest()
-		{
-		}
-
-		public PersonReqest (string name, string phoneNumber)
-		{
-			Name = name;
-			PhoneNumber = phoneNumber;
-		}
-
 		#region IEquatable implementation
 
 		/// <inheritdoc />
