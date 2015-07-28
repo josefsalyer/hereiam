@@ -22,7 +22,7 @@ namespace HereIAm.Test
 		{
 			// Act
 			var jsonName = "{'name':'james'}";
-			var results = _client.Post ("/arrival/5551234567", x => {
+			var results = _client.Post ("/person/5551234567/arrive", x => {
 				x.HttpRequest ();
 				x.Header ("Content-Type", "application/json");
 				x.Body(jsonName);

@@ -6,17 +6,17 @@ using HereIAm.Dto;
 
 namespace HereIAm
 {
-	public class ArrivalRoute : NancyModule
+	public class PersonRoute : NancyModule
 	{
 		private Arrival _arrival = null;
 
-		public ArrivalRoute (Arrival arrival) : base("/arrival")
+		public PersonRoute (Arrival arrival) : base("/Person")
 		{
 			// Initialize class
 			_arrival = arrival;
 
 			// Setup routes
-			Post ["/{phoneNumber}"] = param => {
+			Post ["/{phoneNumber}/arrive"] = _ => {
 				Visitor visitorParam;
 				try
 				{
@@ -34,6 +34,10 @@ namespace HereIAm
 					throw;
 				}
 				return PostArrival (visitorParam);
+			};
+
+			Post ["/{phoneNumber/greeting"] = _ => {
+				throw new NotImplementedException (); 
 			};
 		}
 
