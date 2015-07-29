@@ -64,6 +64,7 @@
     <Compile Include="EventTests.cs" />
     <Compile Include="DBConnectionTests.cs" />
     <Compile Include="PersonTests.cs" />
+    <Compile Include="PeopleTests.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
