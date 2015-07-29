@@ -9,7 +9,7 @@ namespace HereIAm.DAL
 	public class Events
 	{
 		private IMongoCollection<Event> _collection;
-		public Events (IMongoCollection<Events> collection)
+		public Events (IMongoCollection<Event> collection)
 		{
 			_collection = collection;	
 

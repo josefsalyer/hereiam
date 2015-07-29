@@ -7,7 +7,7 @@ namespace HereIAm.Test
 	public class PeopleTests
 	{
 		[Test]
-		public TestYouCanCreateAPerson ()
+		public void TestYouCanCreateAPerson ()
 		{
 			Assert.True(true);
 

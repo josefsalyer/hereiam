@@ -7,8 +7,10 @@ namespace HereIAm.Test
 	public class EventsTests
 	{
 		[Test]
-		public EventsTests ()
+		public void TestYouCanCreateAnEvents ()
 		{
+			Assert.IsTrue (true);
+
 		}
 	}
 }
