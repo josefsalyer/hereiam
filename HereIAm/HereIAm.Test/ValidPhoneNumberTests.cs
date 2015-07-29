@@ -33,6 +33,20 @@ namespace HereIAm.Test
 			//Assert
 			Assert.AreEqual (expected, result);
 		}
+
+		[Test]
+		public void NumericSpaceSpaceIsNormalizedAsNumericOnly()
+		{
+			//Arrange
+			var expected = "1234567890";
+			var phoneNumber = new PhoneNumber ("123 456 7890");
+
+			//Act
+			var result = phoneNumber.ToString();
+
+			//Assert
+			Assert.AreEqual (expected, result);
+		}
 	}
 }
 

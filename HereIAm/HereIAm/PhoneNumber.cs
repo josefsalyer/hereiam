@@ -24,8 +24,14 @@ namespace HereIAm
 		public override string ToString ()
 		{
 			var normalized = _phoneNumber;
-			if (normalized.Length == 12)
+
+			switch (normalized.Length) 
+			{
+			case 12:
 				normalized = normalized.Replace ("-", String.Empty);
+				normalized = normalized.Replace (" ", String.Empty);
+				break;
+			}
 				
 			return normalized;
 		}
