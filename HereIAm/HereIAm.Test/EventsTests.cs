@@ -4,13 +4,11 @@ using NUnit.Framework;
 namespace HereIAm.Test
 {
 	[TestFixture]
-	public class PeopleTests
+	public class EventsTests
 	{
 		[Test]
-		public PeopleTests ()
+		public EventsTests ()
 		{
-
-
 		}
 	}
 }

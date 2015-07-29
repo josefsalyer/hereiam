@@ -62,6 +62,8 @@
     <Compile Include="VisitorAckTests.cs" />
     <Compile Include="HostNotifiedTests.cs" />
     <Compile Include="DBConnectionTests.cs" />
+    <Compile Include="PeopleTests.cs" />
+    <Compile Include="EventsTests.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

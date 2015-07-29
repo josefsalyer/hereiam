@@ -32,6 +32,11 @@ namespace HereIAm.DAL
 			set;
 		}
 
+		public Events Events {
+			get;
+			set;
+		}
+
 		public DBConnection (string environment = null)
 		{
 			if (environment == null || environment == @"dev") {

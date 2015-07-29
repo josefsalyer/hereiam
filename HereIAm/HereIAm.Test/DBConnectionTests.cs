@@ -16,6 +16,7 @@ namespace HereIAm.Test
 	[TestFixture]
 	public class DBConnectionTests
 	{
+
 		[Test]
 		public void TestDBConnectionNotNull ()
 		{
@@ -57,6 +58,16 @@ namespace HereIAm.Test
 			var people = connection.People ; //this actually creates the collection
 
 			Assert.NotNull (people);
+		}
+
+		[Test]
+		public void TestEventsCollectionExists()
+		{
+			var connection = new DBConnection ();
+			var db = connection.Database;
+			var events = connection.Events;
+
+			Assert.NotNull(events);
 		}
 //
 //		[Test]
