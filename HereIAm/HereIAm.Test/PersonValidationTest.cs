@@ -24,6 +24,23 @@ namespace HereIAm.Test
 			Assert.IsFalse (results.IsValid);
 		}
 
+		[Test]
+		public void IsNotValidWithNullNumber()
+		{
+			//Assign
+			var validator = new PersonValidator();
+			var person = new Person {
+				Name = "John Doe",
+				PhoneNumber = null
+			};
+
+			//Act
+			var results = validator.Validate (person);
+
+			//Assert
+			Assert.IsFalse (results.IsValid);
+		}
+
 //		[Test]
 //		public void IsValidWithNameAndPhoneNumber ()
 //		{
