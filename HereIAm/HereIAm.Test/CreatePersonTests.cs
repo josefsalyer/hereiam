@@ -7,23 +7,16 @@ namespace HereIAm.Test
 	public class CreatePersonTests
 	{
 		[Test]
+		[ExpectedException(typeof(ArgumentException), ExpectedMessage = "Bad name")]
 		public void WithAnInvalidNameThrowsAnException ()
 		{
 			//Arrange
 			var personMgr = new PersonManager();
 			var name = "";
 			var phoneNumber = "1234567890";
-			var expectedExMessage = "Bad name";
-			var expectedEx = typeof(ArgumentException);
 
-			//Act / Assert
-			Assert.Throws (
-				expectedEx,
-				delegate {
-					personMgr.Create(name, phoneNumber);
-				},
-				expectedExMessage
-			);
+			//Act
+			personMgr.Create (name, phoneNumber);
 		}
 	}
 }

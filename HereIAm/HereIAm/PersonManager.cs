@@ -7,7 +7,7 @@ namespace HereIAm
 		public void Create(string name, string phoneNumber)
 		{
 			if (String.IsNullOrWhiteSpace (name))
-				throw new ArgumentException ("Bad name", "name");
+				throw new ArgumentException ("Bad name");
 		}
 	}
 }
