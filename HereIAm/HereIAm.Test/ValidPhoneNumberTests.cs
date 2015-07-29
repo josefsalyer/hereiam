@@ -7,7 +7,7 @@ namespace HereIAm.Test
 	public class ValidPhoneNumberTests
 	{
 		[Test]
-		public void Format1234567890IsNormalizedAs1234567890()
+		public void NumericOnlyIsNormalizedAsNumericOnly()
 		{
 			//Arrange
 			var expected = "1234567890";
