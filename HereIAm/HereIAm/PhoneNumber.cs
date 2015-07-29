@@ -23,7 +23,11 @@ namespace HereIAm
 
 		public override string ToString ()
 		{
-			return _phoneNumber;
+			var normalized = _phoneNumber;
+			if (normalized.Length == 12)
+				normalized = normalized.Replace ("-", String.Empty);
+				
+			return normalized;
 		}
 	}
 }
