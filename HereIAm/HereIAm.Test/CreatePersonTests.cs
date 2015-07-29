@@ -13,7 +13,7 @@ namespace HereIAm.Test
 			//Arrange
 			var personMgr = new PersonManager();
 			var name = "";
-			var phoneNumber = "1234567890";
+			var phoneNumber = new PhoneNumber ("1234567890");
 
 			//Act
 			personMgr.Create (name, phoneNumber);
