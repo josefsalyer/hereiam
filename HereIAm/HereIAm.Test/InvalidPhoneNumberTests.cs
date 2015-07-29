@@ -15,6 +15,22 @@ namespace HereIAm.Test
 		}
 
 		[Test]
+		[ExpectedException(typeof(ArgumentException), ExpectedMessage = "Bad phone number")]
+		public void ThrowsExceptionWhenNumberIsTooLong()
+		{
+			//Act
+			new PhoneNumber("123456789123456789");
+		}
+
+		[Test]
+		[ExpectedException(typeof(ArgumentException), ExpectedMessage = "Bad phone number")]
+		public void ThrowsExceptionWhenNumberIsTooShort()
+		{
+			//Act
+			new PhoneNumber("12345");
+		}
+
+		[Test]
 		[ExpectedException(typeof(ArgumentNullException))]
 		public void ThrowsExceptionWhenNullEntered()
 		{
