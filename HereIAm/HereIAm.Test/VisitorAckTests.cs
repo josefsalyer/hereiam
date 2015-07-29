@@ -14,15 +14,18 @@ namespace HereIAm.Test
 		public void InitializeTest()
 		{
 			// Arrange
-			_client = new Browser (new DefaultNancyBootstrapper ());
+			_client = new Browser (new Bootstrapper ());
 		}
 
 		[Test]
 		public void AcceptedVisitorIsSentAnAcknowledgementMessage()
 		{
 			// Act
-			var results = _client.Post ("/arrival/5551234567", x => {
+			var jsonName = "{'name':'james'}";
+			var results = _client.Post ("/person/5551234567/arrive", x => {
 				x.HttpRequest ();
+				x.Header ("Content-Type", "application/json");
+				x.Body(jsonName);
 			});
 
 			// Arrange
@@ -37,8 +40,11 @@ namespace HereIAm.Test
 		public void InvalidVisitorIsSentARejectionAcknowledgement()
 		{
 			//Act
-			var results = _client.Post ("/arrival/55512345679877", x => {
+			var jsonName = "{'name':'james'}";
+			var results = _client.Post ("/person/55512345679877/arrive", x => {
 				x.HttpRequest ();
+				x.Header ("Content-Type", "application/json");
+				x.Body(jsonName);
 			});
 
 			//Arrange

@@ -2,38 +2,37 @@
 using Nancy;
 using Nancy.ModelBinding;
 using Nancy.Responses;
+using Nancy.Validation;
 using HereIAm.Dto;
 
 namespace HereIAm
 {
-	public class ArrivalRoute : NancyModule
+	public class PersonRoute : NancyModule
 	{
 		private Arrival _arrival = null;
 
-		public ArrivalRoute (Arrival arrival) : base("/arrival")
+		public PersonRoute (Arrival arrival) : base("/person")
 		{
 			// Initialize class
 			_arrival = arrival;
 
 			// Setup routes
-			Post ["/{phoneNumber}"] = param => {
-				Person visitorParam;
+			Post ["/{phoneNumber}/arrive"] = _ => {
 				try
 				{
-					visitorParam = this.Bind<Person> ();
+					var visitorParam = this.BindAndValidate<Person> ();
+					if (ModelValidationResult.IsValid)
+						return PostArrival (visitorParam);
+					return Negotiate.RespondWithValidationFailureMessage (ModelValidationResult);
 				}
-				catch (Exception ex)
+				catch (ModelBindingException)
 				{
-					// Check if Nancy exception.
-					if ((ex as System.Reflection.TargetInvocationException) != null)
-						return new TextResponse (HttpStatusCode.BadRequest);
-					// Check if library exception.
-					if ((ex as ArgumentException) != null)						
-						return new TextResponse (HttpStatusCode.BadRequest, ex.Message);
-					// Something we don't know about.
-					throw;
+					return Negotiate.RespondWithValidationFailureMessage ("DTO binding failed");
 				}
-				return PostArrival (visitorParam);
+			};
+
+			Post ["/{phoneNumber/greeting"] = _ => {
+				throw new NotImplementedException (); 
 			};
 		}
 
