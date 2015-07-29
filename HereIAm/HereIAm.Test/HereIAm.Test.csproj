@@ -57,6 +57,7 @@
     <Compile Include="VisitorAckTests.cs" />
     <Compile Include="HostNotifiedTests.cs" />
     <Compile Include="DBConnectionTests.cs" />
+    <Compile Include="CreatePersonTests.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
