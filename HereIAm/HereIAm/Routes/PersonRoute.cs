@@ -39,13 +39,17 @@ namespace HereIAm
 		private Response PostArrival(PersonRequest visitor) 
 		{
 			var statusCode = HttpStatusCode.InternalServerError;
+			var isValidPhoneNumber = false;
 
-			var isValidPhoneNumber = _arrival.ValidatePhoneNumber (visitor.PhoneNumber);
-			if (isValidPhoneNumber) {
-				statusCode = HttpStatusCode.OK;
+			try {
 				_arrival.MarkAsArrived (visitor);
-			} else {
-				statusCode = HttpStatusCode.BadRequest;
+				statusCode = HttpStatusCode.OK;
+				isValidPhoneNumber = true;
+			} catch (Exception ex) {
+				if (ex is ArgumentException || ex is ArgumentNullException)
+					statusCode = HttpStatusCode.BadRequest;
+				else
+					throw;
 			}
 
 			var responseBody = _arrival.GenerateAcknowledgementResponse (isValidPhoneNumber);

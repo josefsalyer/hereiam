@@ -10,8 +10,6 @@ namespace HereIAm
 			@"Thank you, someone will be with you shortly.";
 		private const string INVALID_ACK_MESSAGE =
 			@"Stranger Danger!";
-		private static readonly Regex _phonePattern = 
-			new Regex (@"^\(?\d{3}\)?-? ?\d{3}-? ?-?\d{4}$");
 
 		private VisitorManager _visitorManager;
 
@@ -23,10 +21,6 @@ namespace HereIAm
 			_visitorManager = visitorManager;
 		}
 
-		public bool ValidatePhoneNumber(string phoneNumber)
-		{
-			return _phonePattern.IsMatch (phoneNumber);
-		}
 
 		public string GenerateAcknowledgementResponse(bool isValidPhoneNumber)
 		{
@@ -40,7 +34,8 @@ namespace HereIAm
 			if (visitor == null)
 				throw new ArgumentNullException ("visitor");
 
-			_visitorManager.AddVisitor (visitor);
+			var factory = new PersonFactory ();
+			_visitorManager.AddVisitor (factory.Create (visitor.Name, visitor.PhoneNumber));
 		}
 	}
 }
