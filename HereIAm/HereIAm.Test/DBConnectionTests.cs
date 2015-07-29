@@ -60,6 +60,7 @@ namespace HereIAm.Test
 			Assert.NotNull (people);
 		}
 
+
 		[Test]
 		public void TestEventsCollectionExists()
 		{
@@ -69,29 +70,7 @@ namespace HereIAm.Test
 
 			Assert.NotNull(events);
 		}
-//
-//		[Test]
-//		public void TestStoreUrlIsConfigured ()
-//		{
-//			
-//			var db = new DBConnection ();
-//			var actual = db.Store.Url;
-//			var expected = @"https://lrtconsulting-5noh.ravenhq.com/databases/lrtconsulting-hereiam";
-//			Assert.AreEqual (expected, actual);
-//
-//		}
-//
-//		[Test]
-//		public void TestStoreApiKeyIsConfigured ()
-//		{
-//
-//			var db = new DBConnection ();
-//			var actual = db.Store.ApiKey;
-//			var expected = @"9db681e5-51c1-491a-b8ea-9dd8f12e09e0";
-//			Assert.AreEqual (expected, actual);
-//
-//
-//		}
+		
 
 		[Test]
 		public void TestStoreSessionLifeCycle ()

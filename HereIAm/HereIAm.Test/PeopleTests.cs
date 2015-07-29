@@ -9,7 +9,7 @@ namespace HereIAm.Test
 		[Test]
 		public TestYouCanCreateAPerson ()
 		{
-
+			Assert.True(true);
 
 		}
 	}

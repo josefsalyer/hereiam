@@ -94,6 +94,10 @@ $> cd devops
 $> rake spec
 ```
 
+- install mongodb
+
+Follow the download and installation instructions here: [https://www.mongodb.org/downloads](https://www.mongodb.org/downloads)
+
 
 
 # access stuff
