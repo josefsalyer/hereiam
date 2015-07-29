@@ -43,6 +43,7 @@
     <Compile Include="VisitorManager.cs" />
     <Compile Include="Routes\ArrivalRoute.cs" />
     <Compile Include="Routes\RootRoute.cs" />
+    <Compile Include="EventManager.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
