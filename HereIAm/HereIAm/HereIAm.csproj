@@ -55,7 +55,6 @@
     <Compile Include="VisitorEventArgs.cs" />
     <Compile Include="VisitorManager.cs" />
     <Compile Include="Routes\RootRoute.cs" />
-    <Compile Include="EventManager.cs" />
     <Compile Include="Routes\PersonRoute.cs" />
     <Compile Include="Validators\PersonRequestValidator.cs" />
     <Compile Include="Routes\NancyModuleExtensions.cs" />

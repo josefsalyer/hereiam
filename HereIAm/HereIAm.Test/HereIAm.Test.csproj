@@ -62,7 +62,6 @@
     <Compile Include="VisitorAckTests.cs" />
     <Compile Include="HostNotifiedTests.cs" />
     <Compile Include="EventTests.cs" />
-    <Compile Include="EventManagerTests.cs" />
     <Compile Include="DBConnectionTests.cs" />
     <Compile Include="PersonTests.cs" />
   </ItemGroup>
