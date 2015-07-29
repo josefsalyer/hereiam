@@ -8,6 +8,8 @@ namespace HereIAm
 		{
 			if (String.IsNullOrWhiteSpace (name))
 				throw new ArgumentException ("Bad name");
+			if (phoneNumber == null)
+				throw new ArgumentNullException ("phoneNumber");
 		}
 	}
 }

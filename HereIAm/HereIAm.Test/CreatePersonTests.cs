@@ -18,6 +18,19 @@ namespace HereIAm.Test
 			//Act
 			personMgr.Create (name, phoneNumber);
 		}
+
+		[Test]
+		[ExpectedException(typeof(ArgumentNullException))]
+		public void WithAnNullPhoneNumberThrowsAnException ()
+		{
+			//Arrange
+			var personMgr = new PersonManager ();
+			var name = "John Doe";
+			PhoneNumber phoneNumber = null;
+
+			//Act
+			personMgr.Create (name, phoneNumber);
+		}
 	}
 }
 
