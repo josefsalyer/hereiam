@@ -36,6 +36,12 @@ namespace HereIAm
 				normalized = normalized.Replace (")", String.Empty);
 				normalized = normalized.Replace ("-", String.Empty);
 				break;
+			case 14:
+				normalized = normalized.Replace ("(", String.Empty);
+				normalized = normalized.Replace (")", String.Empty);
+				normalized = normalized.Replace (" ", String.Empty);
+				normalized = normalized.Replace ("-", String.Empty);
+				break;
 			}
 				
 			return normalized;
