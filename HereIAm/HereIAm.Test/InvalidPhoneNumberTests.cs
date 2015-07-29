@@ -4,11 +4,11 @@ using NUnit.Framework;
 namespace HereIAm.Test
 {
 	[TestFixture]
-	public class PhoneNumberTests
+	public class InvalidPhoneNumberTests
 	{
 		[Test]
 		[ExpectedException(typeof(ArgumentException), ExpectedMessage = "Bad phone number")]
-		public void ThrowsExceptionWhenInvalidNumberEntered()
+		public void ThrowsExceptionWhenNonNumericNumberEntered()
 		{
 			//Act
 			new PhoneNumber("BADBEEF123");
@@ -16,7 +16,7 @@ namespace HereIAm.Test
 
 		[Test]
 		[ExpectedException(typeof(ArgumentNullException))]
-		public void ThrowsExceptionWhenNullNumberEntered()
+		public void ThrowsExceptionWhenNullEntered()
 		{
 			//Act
 			new PhoneNumber (null);
