@@ -59,6 +59,7 @@
     <Compile Include="DBConnectionTests.cs" />
     <Compile Include="CreatePersonTests.cs" />
     <Compile Include="InvalidPhoneNumberTests.cs" />
+    <Compile Include="ValidPhoneNumberTests.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

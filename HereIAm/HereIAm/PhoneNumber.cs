@@ -20,6 +20,11 @@ namespace HereIAm
 				
 			_phoneNumber = phoneNumber;
 		}
+
+		public override string ToString ()
+		{
+			return _phoneNumber;
+		}
 	}
 }
 
