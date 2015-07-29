@@ -4,6 +4,7 @@ namespace HereIAm.Dto
 {
 	public class PersonRequest : IEquatable<PersonRequest>
 	{
+
 		public string Name
 		{
 			get { return _name; }

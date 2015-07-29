@@ -1,42 +1,73 @@
 ﻿using System;
-using Raven.Client.Document;
+
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
+using MongoDB.Driver;
 
 namespace HereIAm.DAL
 {
-	public class DBConnection
+	// FIXME: move to dto
+	public class Person
 	{
-		public DocumentStore Store {
+		public String Name  {
 			get;
 			set;
 		}
 
-		public DBConnection ()
-		{
-			this.Store = new DocumentStore
-				{
-					Url = "https://lrtconsulting-5noh.ravenhq.com/databases/lrtconsulting-hereiam",
-					ApiKey = "9db681e5-51c1-491a-b8ea-9dd8f12e09e0",
-					DefaultDatabase = "lrtconsulting-hereiam"//,
-//					HttpMessageHandlerFactory = new CustomHttpMessageHandler()
-				};
-			this.Store.Initialize ();
+		public String PhoneNumber {
+			get;
+			set;
+		}
+
+		public String Id {
+			get;
+			set;
 		}
 	}
 
+	public class DBConnection
+	{
+		public MongoClient Client {
+			get;
+			set;
+		}
+
+		public String Environment {
+			get;
+			set;
+		}
+			
+
+		public  IMongoDatabase Database {
+			get;
+			set;
+		}
+
+		public PeopleCollection People {
+			get;
+			set;
+		}
+
+		public DBConnection (string environment = null)
+		{
+			if (environment == null || environment == @"dev") {
+				this.Environment = @"dev";
+				this.Client = new MongoClient ("mongodb://localhost:27017");
+			} else {
+				this.Environment = @"prod";
+				this.Client = new MongoClient ("mongodb://josef:HereIAm1@aws-us-east-1-portal.6.dblayer.com:27017");
+			}
+
+			this.Database = this.Client.GetDatabase ("hereiam");
+
+			this.People = new PeopleCollection (this.Database.GetCollection<Person> ("People")); //;
+				
+		}
+			
+	}
+		
 
 
-//
-//
-//	public class CustomHttpMessageHandler : HttpClientHandler
-//	{
-//		protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-//		{
-//			request.Headers.TransferEncodingChunked = null;
-//			return base.SendAsync(request, cancellationToken);
-//		}
-//	}
 }
 
