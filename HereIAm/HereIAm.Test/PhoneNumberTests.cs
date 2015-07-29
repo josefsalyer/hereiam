@@ -13,5 +13,13 @@ namespace HereIAm.Test
 			//Act
 			new PhoneNumber("BADBEEF123");
 		}
+
+		[Test]
+		[ExpectedException(typeof(ArgumentNullException))]
+		public void ThrowsExceptionWhenNullNumberEntered()
+		{
+			//Act
+			new PhoneNumber (null);
+		}
 	}
 }
