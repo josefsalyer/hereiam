@@ -20,7 +20,7 @@ namespace HereIAm
 			Post ["/{phoneNumber}/arrive"] = _ => {
 				try
 				{
-					var visitorParam = this.BindAndValidate<PersonRequest> ();
+					var visitorParam = this.BindAndValidate<Person> ();
 					if (ModelValidationResult.IsValid)
 						return PostArrival (visitorParam);
 					return Negotiate.RespondWithValidationFailureMessage (ModelValidationResult);
@@ -36,7 +36,7 @@ namespace HereIAm
 			};
 		}
 
-		private Response PostArrival(PersonRequest visitor) 
+		private Response PostArrival(Person visitor) 
 		{
 			var statusCode = HttpStatusCode.InternalServerError;
 

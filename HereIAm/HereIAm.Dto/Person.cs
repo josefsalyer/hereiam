@@ -2,9 +2,12 @@
 
 namespace HereIAm.Dto
 {
-	public class PersonRequest : IEquatable<PersonRequest>
+	public class Person : IEquatable<Person>
 	{
+		public string Id { get; set; }
+
 		public string Name{ get; set; }
+
 		public string PhoneNumber { get; set; } 
 
 		#region IEquatable implementation
@@ -21,11 +24,11 @@ namespace HereIAm.Dto
 		/// <inheritdoc />
 		public override bool Equals(object obj)
 		{
-			return Equals(obj as PersonRequest);
+			return Equals(obj as Person);
 		}
 
 		/// <inheritdoc />
-		public bool Equals(PersonRequest other)
+		public bool Equals(Person other)
 		{
 			if (other == null)
 				return false;
