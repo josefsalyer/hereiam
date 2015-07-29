@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using HereIAm.Dto;
+using HereIAm.Models;
 
 namespace HereIAm
 {
@@ -9,11 +9,11 @@ namespace HereIAm
 	{
 		public event EventHandler<VisitorEventArgs> VisitorAdded;
 
-		private Dictionary<string, PersonRequest> _visitorState;
+		private Dictionary<string, Person> _visitorState;
 
 		public VisitorManager()
 		{
-			_visitorState = new Dictionary<string, PersonRequest> ();
+			_visitorState = new Dictionary<string, Person> ();
 		}
 
 		public void OnVisiterAdded(VisitorEventArgs e)
@@ -25,16 +25,17 @@ namespace HereIAm
 			}
 		}
 
-		public void AddVisitor(PersonRequest visitor)
+		public void AddVisitor(Person visitor)
 		{
 			if (visitor == null)
 				throw new ArgumentNullException ("visitor");
 
-			_visitorState.Add (visitor.PhoneNumber, visitor);
-			OnVisiterAdded (new VisitorEventArgs(visitor.PhoneNumber));
+			var phoneNumber = visitor.PhoneNumber.ToString ();
+			_visitorState.Add (phoneNumber, visitor);
+			OnVisiterAdded (new VisitorEventArgs(phoneNumber));
 		}
 
-		public virtual PersonRequest GetVisitor(string phoneNumber) 
+		public virtual Person GetVisitor(string phoneNumber) 
 		{
 			if (String.IsNullOrWhiteSpace (phoneNumber))
 				throw new ArgumentException ("phoneNumber");

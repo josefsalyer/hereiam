@@ -34,7 +34,8 @@ namespace HereIAm
 			if (visitor == null)
 				throw new ArgumentNullException ("visitor");
 
-			_visitorManager.AddVisitor (visitor);
+			var factory = new PersonFactory ();
+			_visitorManager.AddVisitor (factory.Create (visitor.Name, visitor.PhoneNumber));
 		}
 	}
 }
