@@ -59,8 +59,8 @@
     <Compile Include="Validators\PersonRequestValidator.cs" />
     <Compile Include="Routes\NancyModuleExtensions.cs" />
     <Compile Include="Models\Person.cs" />
-    <Compile Include="PersonManager.cs" />
     <Compile Include="PhoneNumber.cs" />
+    <Compile Include="Validators\PersonValidator.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

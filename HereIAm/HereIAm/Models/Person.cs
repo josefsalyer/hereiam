@@ -5,7 +5,7 @@ namespace HereIAm.Models
 	public class Person
 	{
 		public string Name { get; set; }
-		public string PhoneNumber { get; set; }
+		public PhoneNumber PhoneNumber { get; set; }
 	}
 }
 

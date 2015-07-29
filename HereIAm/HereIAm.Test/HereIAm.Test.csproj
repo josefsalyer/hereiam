@@ -51,15 +51,18 @@
       <HintPath>..\packages\RavenDB.Client.3.0.3690\lib\net45\Raven.Client.Lightweight.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="FluentValidation">
+      <HintPath>..\packages\FluentValidation.5.6.2.0\lib\Net45\FluentValidation.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="VisitorArrivesTests.cs" />
     <Compile Include="VisitorAckTests.cs" />
     <Compile Include="HostNotifiedTests.cs" />
     <Compile Include="DBConnectionTests.cs" />
-    <Compile Include="CreatePersonTests.cs" />
     <Compile Include="InvalidPhoneNumberTests.cs" />
     <Compile Include="ValidPhoneNumberTests.cs" />
+    <Compile Include="PersonValidationTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
