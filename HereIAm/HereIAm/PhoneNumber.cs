@@ -46,6 +46,37 @@ namespace HereIAm
 				
 			return normalized;
 		}
+
+		#region IEquatable implementation
+
+		/// <inheritdoc />
+		public override int GetHashCode()
+		{
+			var hash = 0;
+			hash ^= ToString().GetHashCode ();
+			return hash;
+		}
+
+		/// <inheritdoc />
+		public override bool Equals(object obj)
+		{
+			return Equals(obj as PhoneNumber);
+		}
+
+		/// <inheritdoc />
+		public bool Equals(PhoneNumber other)
+		{
+			if (other == null)
+				return false;
+
+			var equals = true;
+			equals &= ToString().Equals (other.ToString());
+			return equals;
+		}
+
+		#endregion
+
+
 	}
 }
 

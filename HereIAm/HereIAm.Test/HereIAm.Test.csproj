@@ -63,6 +63,7 @@
     <Compile Include="InvalidPhoneNumberTests.cs" />
     <Compile Include="ValidPhoneNumberTests.cs" />
     <Compile Include="PersonValidationTest.cs" />
+    <Compile Include="PersonFactoryTests.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
