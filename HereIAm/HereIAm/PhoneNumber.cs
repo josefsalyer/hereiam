@@ -31,6 +31,11 @@ namespace HereIAm
 				normalized = normalized.Replace ("-", String.Empty);
 				normalized = normalized.Replace (" ", String.Empty);
 				break;
+			case 13:
+				normalized = normalized.Replace ("(", String.Empty);
+				normalized = normalized.Replace (")", String.Empty);
+				normalized = normalized.Replace ("-", String.Empty);
+				break;
 			}
 				
 			return normalized;
