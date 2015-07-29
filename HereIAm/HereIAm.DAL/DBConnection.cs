@@ -49,7 +49,7 @@ namespace HereIAm.DAL
 
 			this.Database = this.Client.GetDatabase ("hereiam");
 
-			this.People = new People (this.Database.GetCollection<Person> ("People"));
+			this.People = new People (this.Database.GetCollection<PersonRequest> ("People"));
 			this.Events = new Events (this.Database.GetCollection<Event> ("Events"));
 				
 		}

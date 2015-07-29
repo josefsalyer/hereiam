@@ -2,7 +2,7 @@
 
 namespace HereIAm.Dto
 {
-	public class Person : IEquatable<Person>
+	public class PersonRequest : IEquatable<PersonRequest>
 	{
 		public string Id { get; set; }
 
@@ -24,11 +24,11 @@ namespace HereIAm.Dto
 		/// <inheritdoc />
 		public override bool Equals(object obj)
 		{
-			return Equals(obj as Person);
+			return Equals(obj as PersonRequest);
 		}
 
 		/// <inheritdoc />
-		public bool Equals(Person other)
+		public bool Equals(PersonRequest other)
 		{
 			if (other == null)
 				return false;

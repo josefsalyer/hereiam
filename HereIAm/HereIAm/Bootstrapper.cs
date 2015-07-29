@@ -12,10 +12,10 @@ namespace HereIAm
 
 		protected override void ConfigureApplicationContainer (TinyIoCContainer container)
 		{
-			this.Container = container;
-			this.Container.Register<IFluentAdapterFactory, DefaultFluentAdapterFactory> ().AsSingleton ();
-			this.Container.Register<IModelValidatorFactory, FluentValidationValidatorFactory> ().AsSingleton ();
-			this.Container.Register<VisitorManager> ().AsSingleton ();
+			Container = container;
+			Container.Register<IFluentAdapterFactory, DefaultFluentAdapterFactory> ().AsSingleton ();
+			Container.Register<IModelValidatorFactory, FluentValidationValidatorFactory> ().AsSingleton ();
+			Container.Register<VisitorManager> ().AsSingleton ();
 		}
 
 		protected override void ConfigureRequestContainer (TinyIoCContainer container, NancyContext context)

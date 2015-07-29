@@ -5,7 +5,7 @@ using HereIAm.Dto;
 
 namespace HereIAm
 {
-	public class PersonRequestValidator : AbstractValidator<Person>
+	public class PersonRequestValidator : AbstractValidator<PersonRequest>
 	{
 		public PersonRequestValidator ()
 		{
