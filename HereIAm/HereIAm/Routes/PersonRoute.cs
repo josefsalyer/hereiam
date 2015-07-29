@@ -2,6 +2,7 @@
 using Nancy;
 using Nancy.ModelBinding;
 using Nancy.Responses;
+using Nancy.Validation;
 using HereIAm.Dto;
 
 namespace HereIAm
@@ -17,23 +18,17 @@ namespace HereIAm
 
 			// Setup routes
 			Post ["/{phoneNumber}/arrive"] = _ => {
-				PersonRequest visitorParam;
 				try
 				{
-					visitorParam = this.Bind<PersonRequest> ();
+					var visitorParam = this.BindAndValidate<Person> ();
+					if (ModelValidationResult.IsValid)
+						return PostArrival (visitorParam);
+					return Negotiate.RespondWithValidationFailureMessage (ModelValidationResult);
 				}
-				catch (Exception ex)
+				catch (ModelBindingException)
 				{
-					// Check if Nancy exception.
-					if ((ex as System.Reflection.TargetInvocationException) != null)
-						return new TextResponse (HttpStatusCode.BadRequest);
-					// Check if library exception.
-					if ((ex as ArgumentException) != null)						
-						return new TextResponse (HttpStatusCode.BadRequest, ex.Message);
-					// Something we don't know about.
-					throw;
+					return Negotiate.RespondWithValidationFailureMessage ("DTO binding failed");
 				}
-				return PostArrival (visitorParam);
 			};
 
 			Post ["/{phoneNumber/greeting"] = _ => {
@@ -41,7 +36,7 @@ namespace HereIAm
 			};
 		}
 
-		private Response PostArrival(PersonRequest visitor) 
+		private Response PostArrival(Person visitor) 
 		{
 			var statusCode = HttpStatusCode.InternalServerError;
 

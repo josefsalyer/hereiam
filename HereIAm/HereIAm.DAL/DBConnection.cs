@@ -4,27 +4,10 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using MongoDB.Driver;
+using HereIAm.Dto;
 
 namespace HereIAm.DAL
 {
-	// FIXME: move to dto
-	public class Person
-	{
-		public String Name  {
-			get;
-			set;
-		}
-
-		public String PhoneNumber {
-			get;
-			set;
-		}
-
-		public String Id {
-			get;
-			set;
-		}
-	}
 
 	public class DBConnection
 	{
@@ -44,7 +27,7 @@ namespace HereIAm.DAL
 			set;
 		}
 
-		public PeopleCollection People {
+		public People People {
 			get;
 			set;
 		}
@@ -61,7 +44,7 @@ namespace HereIAm.DAL
 
 			this.Database = this.Client.GetDatabase ("hereiam");
 
-			this.People = new PeopleCollection (this.Database.GetCollection<Person> ("People")); //;
+			this.People = new People (this.Database.GetCollection<Person> ("People"));
 				
 		}
 			

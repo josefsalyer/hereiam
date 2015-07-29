@@ -7,28 +7,11 @@ using System.Threading.Tasks;
 using System.Threading;
 using MongoDB.Driver;
 using MongoDB.Bson;
+using HereIAm.Dto;
 
 
 namespace HereIAm.Test
 {
-
-	public class Person
-	{
-		public String Name  {
-			get;
-			set;
-		}
-
-		public String PhoneNumber {
-			get;
-			set;
-		}
-
-		public String Id {
-			get;
-			set;
-		}
-	}
 
 	[TestFixture]
 	public class DBConnectionTests

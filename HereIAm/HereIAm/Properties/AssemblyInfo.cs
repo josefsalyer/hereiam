@@ -25,3 +25,5 @@ using System.Runtime.CompilerServices;
 //[assembly: AssemblyDelaySign(false)]
 //[assembly: AssemblyKeyFile("")]
 
+// Make internal classes, methods, properties, and fields avaliable to the test project.
+[assembly:InternalsVisibleTo("HereIAm.Test")]

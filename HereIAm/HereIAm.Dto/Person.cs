@@ -2,31 +2,13 @@
 
 namespace HereIAm.Dto
 {
-	public class PersonRequest : IEquatable<PersonRequest>
+	public class Person : IEquatable<Person>
 	{
+		public string Id { get; set; }
 
-		public string Name
-		{
-			get { return _name; }
-			set {
-				if (String.IsNullOrWhiteSpace (value))
-					throw new ArgumentException ("Error: Blank Name");
-				_name = value;
-			}
-		}
+		public string Name{ get; set; }
+
 		public string PhoneNumber { get; set; } 
-
-		private string _name;
-
-		public PersonRequest()
-		{
-		}
-
-		public PersonRequest (string name, string phoneNumber)
-		{
-			Name = name;
-			PhoneNumber = phoneNumber;
-		}
 
 		#region IEquatable implementation
 
@@ -42,11 +24,11 @@ namespace HereIAm.Dto
 		/// <inheritdoc />
 		public override bool Equals(object obj)
 		{
-			return Equals(obj as PersonRequest);
+			return Equals(obj as Person);
 		}
 
 		/// <inheritdoc />
-		public bool Equals(PersonRequest other)
+		public bool Equals(Person other)
 		{
 			if (other == null)
 				return false;
