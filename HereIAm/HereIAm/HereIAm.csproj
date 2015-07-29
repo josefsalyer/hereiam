@@ -60,6 +60,7 @@
     <Compile Include="Routes\NancyModuleExtensions.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="PersonManager.cs" />
+    <Compile Include="PhoneNumber.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
