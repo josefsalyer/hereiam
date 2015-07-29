@@ -41,22 +41,22 @@ namespace HereIAm.Test
 			Assert.IsFalse (results.IsValid);
 		}
 
-//		[Test]
-//		public void IsValidWithNameAndPhoneNumber ()
-//		{
-//			//Assign
-//			var validator = new PersonValidator();
-//			var person = new Person {
-//				Name = "John Doe",
-//				PhoneNumber = new PhoneNumber ("1234567890")
-//			};
-//
-//			//Act
-//			var results = validator.Validate (person);
-//
-//			//Assert
-//			Assert.IsTrue (results.IsValid);
-//		}
+		[Test]
+		public void IsValidWithNameAndPhoneNumber ()
+		{
+			//Assign
+			var validator = new PersonValidator();
+			var person = new Person {
+				Name = "John Doe",
+				PhoneNumber = new PhoneNumber ("1234567890")
+			};
+
+			//Act
+			var results = validator.Validate (person);
+
+			//Assert
+			Assert.IsTrue (results.IsValid);
+		}
 	}
 }
 
