@@ -42,10 +42,9 @@ namespace HereIAm
 			var isValidPhoneNumber = false;
 
 			try {
-				statusCode = HttpStatusCode.OK;
-				new PhoneNumber (visitor.PhoneNumber);
-				isValidPhoneNumber = true;
 				_arrival.MarkAsArrived (visitor);
+				statusCode = HttpStatusCode.OK;
+				isValidPhoneNumber = true;
 			} catch (Exception ex) {
 				if (ex is ArgumentException || ex is ArgumentNullException)
 					statusCode = HttpStatusCode.BadRequest;
