@@ -10,10 +10,6 @@ namespace HereIAm
 	{
 		private IMongoCollection<T> _collection;
 
-		public Dao ()
-		{
-		}
-
 		public Dao (IMongoCollection<T> collection)
 		{
 			_collection = collection;	
