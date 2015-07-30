@@ -9,6 +9,7 @@ namespace HereIAm.Test
 		[Test]
 		public void TestYouCanCreateAnEvents ()
 		{
+			throw new NotImplementedException ();
 			Assert.IsTrue (true);
 
 		}

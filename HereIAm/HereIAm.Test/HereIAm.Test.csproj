@@ -40,7 +40,6 @@
     </Reference>
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
     </Reference>
@@ -59,9 +58,6 @@
     <Reference Include="FluentValidation">
       <HintPath>..\packages\FluentValidation.5.6.2.0\lib\Net45\FluentValidation.dll</HintPath>
     </Reference>
-    <Reference Include="Nancy.Validation.FluentValidation">
-      <HintPath>..\packages\Nancy.Validation.FluentValidation.1.2.0\lib\net40\Nancy.Validation.FluentValidation.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="VisitorArrivesTests.cs" />
@@ -69,7 +65,6 @@
     <Compile Include="HostNotifiedTests.cs" />
     <Compile Include="PeopleTests.cs" />
     <Compile Include="EventsTests.cs" />
-    <Compile Include="BootstrapperTests.cs" />
     <Compile Include="InvalidPhoneNumberTests.cs" />
     <Compile Include="ValidPhoneNumberTests.cs" />
     <Compile Include="PersonValidationTest.cs" />

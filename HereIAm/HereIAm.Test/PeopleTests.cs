@@ -9,6 +9,7 @@ namespace HereIAm.Test
 		[Test]
 		public void TestYouCanCreateAPerson ()
 		{
+			throw new NotImplementedException ();
 			Assert.True(true);
 
 		}
