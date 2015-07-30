@@ -3,24 +3,17 @@ using Nancy;
 using Nancy.TinyIoc;
 using Nancy.Validation;
 using Nancy.Validation.FluentValidation;
+using Nancy.Diagnostics;
+using Nancy.Bootstrapper;
 
 namespace HereIAm
 {
 	public class Bootstrapper : DefaultNancyBootstrapper
 	{
-		internal TinyIoCContainer Container { get; set; }
-
-		protected override void ConfigureApplicationContainer (TinyIoCContainer container)
+		protected override DiagnosticsConfiguration DiagnosticsConfiguration
 		{
-			Container = container;
-			Container.Register<IFluentAdapterFactory, DefaultFluentAdapterFactory> ().AsSingleton ();
-			Container.Register<IModelValidatorFactory, FluentValidationValidatorFactory> ().AsSingleton ();
-			Container.Register<VisitorManager> ().AsSingleton ();
+			get { return new DiagnosticsConfiguration { Password = @"password"}; }
 		}
 
-		protected override void ConfigureRequestContainer (TinyIoCContainer container, NancyContext context)
-		{
-			container.Register<Arrival>();
-		}
 	}
 }

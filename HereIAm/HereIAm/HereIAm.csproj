@@ -46,36 +46,43 @@
     <Reference Include="Nancy.Validation.FluentValidation">
       <HintPath>..\packages\Nancy.Validation.FluentValidation.1.2.0\lib\net40\Nancy.Validation.FluentValidation.dll</HintPath>
     </Reference>
+    <Reference Include="MongoDB.Bson">
+      <HintPath>..\packages\MongoDB.Bson.2.0.1\lib\net45\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver.Core">
+      <HintPath>..\packages\MongoDB.Driver.Core.2.0.1\lib\net45\MongoDB.Driver.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver">
+      <HintPath>..\packages\MongoDB.Driver.2.0.1\lib\net45\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Validator">
+      <HintPath>..\packages\ByteBlast.Validator.0.0.70\lib\net45\Validator.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Arrival.cs" />
     <Compile Include="Bootstrapper.cs" />
-    <Compile Include="HostNotifier.cs" />
-    <Compile Include="VisitorEventArgs.cs" />
-    <Compile Include="VisitorManager.cs" />
     <Compile Include="Routes\RootRoute.cs" />
     <Compile Include="Routes\PersonRoute.cs" />
-    <Compile Include="Validators\PersonRequestValidator.cs" />
-    <Compile Include="Routes\NancyModuleExtensions.cs" />
     <Compile Include="Models\Person.cs" />
-    <Compile Include="PhoneNumber.cs" />
     <Compile Include="Validators\PersonValidator.cs" />
-    <Compile Include="PersonFactory.cs" />
+    <Compile Include="Data\DBConnection.cs" />
+    <Compile Include="Data\Events.cs" />
+    <Compile Include="Data\People.cs" />
+    <Compile Include="Models\Event.cs" />
+    <Compile Include="Routes\EventRoute.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HereIAm.Dto\HereIAm.Dto.csproj">
-      <Project>{54E4CEA4-FC9E-4C77-8394-F75B13C99C9A}</Project>
-      <Name>HereIAm.Dto</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Routes\" />
     <Folder Include="Validators\" />
     <Folder Include="Models\" />
+    <Folder Include="Data\" />
   </ItemGroup>
 </Project>

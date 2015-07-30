@@ -1,5 +1,6 @@
 ﻿using System;
 using Nancy.Hosting.Self;
+using HereIAm;
 
 namespace HereIAm.SelfHost
 {
@@ -13,6 +14,7 @@ namespace HereIAm.SelfHost
 				Console.WriteLine (" Done!");
 				Console.Write ("Press any key to stop.");
 				Console.ReadKey ();
+
 			}
 		}
 	}

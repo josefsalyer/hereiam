@@ -8,7 +8,7 @@ namespace HereIAm
 		public RootRoute ()
 		{
 			Get ["/"] = parameter => {
-				return "Beep Boop";
+				return "This should load the SPA";
 			};
 		}
 	}

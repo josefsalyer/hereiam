@@ -1,13 +1,13 @@
 ﻿using System;
 using NUnit.Framework;
-using HereIAm.DAL;
 
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Threading;
 using MongoDB.Driver;
 using MongoDB.Bson;
-using HereIAm.Dto;
+using HereIAm.Models;
+using HereIAm.Data;
 
 
 namespace HereIAm.Test
@@ -107,7 +107,7 @@ namespace HereIAm.Test
 //
 //		}
 
-		public async Task<PersonRequest> Get(String id, IMongoCollection<PersonRequest> collection)
+		public async Task<Person> Get(String id, IMongoCollection<Person> collection)
 		{
 			return await collection.Find(x => x.Id == id).SingleAsync();
 		}

@@ -3,59 +3,72 @@ using Nancy;
 using Nancy.ModelBinding;
 using Nancy.Responses;
 using Nancy.Validation;
-using HereIAm.Dto;
+using HereIAm.Models;
+using HereIAm.Data;
+using Newtonsoft.Json;
+using System.Collections.Generic;
+using FluentValidation.Results;
 
 namespace HereIAm
 {
 	public class PersonRoute : NancyModule
 	{
-		private Arrival _arrival = null;
+		DBConnection _db;
 
-		public PersonRoute (Arrival arrival) : base("/person")
+		public ValidationResult ValidateRequestBody(Person person)
 		{
-			// Initialize class
-			_arrival = arrival;
+			var validator = new PersonValidator();
 
-			// Setup routes
-			Post ["/{phoneNumber}/arrive"] = _ => {
-				try
-				{
-					var visitorParam = this.BindAndValidate<PersonRequest> ();
-					if (ModelValidationResult.IsValid)
-						return PostArrival (visitorParam);
-					return Negotiate.RespondWithValidationFailureMessage (ModelValidationResult);
-				}
-				catch (ModelBindingException)
-				{
-					return Negotiate.RespondWithValidationFailureMessage ("DTO binding failed");
-				}
-			};
-
-			Post ["/{phoneNumber/greeting"] = _ => {
-				throw new NotImplementedException (); 
-			};
+			return validator.Validate(person);
 		}
 
-		private Response PostArrival(PersonRequest visitor) 
+
+		public PersonRoute () : base("/person")
 		{
-			var statusCode = HttpStatusCode.InternalServerError;
-			var isValidPhoneNumber = false;
+			_db = new DBConnection ();
+			Get ["/", runAsync: true] = async (_, token) =>
+			{
 
-			try {
-				_arrival.MarkAsArrived (visitor);
-				statusCode = HttpStatusCode.OK;
-				isValidPhoneNumber = true;
-			} catch (Exception ex) {
-				if (ex is ArgumentException || ex is ArgumentNullException)
-					statusCode = HttpStatusCode.BadRequest;
-				else
-					throw;
-			}
+				var people = await _db.People.FindAll();
 
-			var responseBody = _arrival.GenerateAcknowledgementResponse (isValidPhoneNumber);
+				return Response.AsJson(people);
+			};
 
-			return new TextResponse (statusCode, responseBody);
+			Post ["/", runAsync: true] = async (_, token) =>
+			{
+				var person = this.Bind<Person>();
+
+				ValidationResult result = ValidateRequestBody(person);
+
+				if(!result.IsValid){
+					return Response.AsJson(result.Errors, HttpStatusCode.BadRequest);
+				}
+
+
+				person.Id = Guid.NewGuid().ToString();
+
+				await _db.People.Save(person);
+
+				return Response.AsJson(person);
+
+			};
+
+			Put ["/arrived", runAsync: true] = async (_, token) => {
+
+				var person = this.Bind<Person>();
+
+				ValidationResult result = ValidateRequestBody(person);
+
+				if(!result.IsValid){
+					return Response.AsJson(result.Errors, HttpStatusCode.BadRequest);
+				}
+
+
+
+
+				return HttpStatusCode.OK;
+			};
+
 		}
 	}
 }
-

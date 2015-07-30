@@ -48,7 +48,7 @@ namespace HereIAm.Test
 			var validator = new PersonValidator();
 			var person = new Person {
 				Name = "John Doe",
-				PhoneNumber = new PhoneNumber ("1234567890")
+				PhoneNumber = "1234567890"
 			};
 
 			//Act
@@ -56,6 +56,23 @@ namespace HereIAm.Test
 
 			//Assert
 			Assert.IsTrue (results.IsValid);
+		}
+
+		[Test]
+		public void PhoneNumberMustMatchRegexPattern()
+		{
+			//Assign
+			var validator = new PersonValidator();
+			var person = new Person {
+				Name = "John Doe",
+				PhoneNumber = "adf;a onasdf a;ehqfo3001"
+			};
+
+			//Act
+			var results = validator.Validate (person);
+
+			//Assert
+			Assert.IsFalse (results.IsValid);
 		}
 	}
 }

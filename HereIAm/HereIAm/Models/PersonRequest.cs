@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace HereIAm.Dto
+namespace HereIAm.Models
 {
 	public class PersonRequest : IEquatable<PersonRequest>
 	{

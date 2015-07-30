@@ -1,10 +1,10 @@
 ﻿using System;
 using MongoDB.Driver;
-using HereIAm.Dto;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using HereIAm.Models;
 
-namespace HereIAm.DAL
+namespace HereIAm.Data
 {
 	public class Events
 	{

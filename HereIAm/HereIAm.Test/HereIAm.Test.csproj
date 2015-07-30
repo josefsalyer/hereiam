@@ -71,10 +71,10 @@
     <Compile Include="PeopleTests.cs" />
     <Compile Include="EventsTests.cs" />
     <Compile Include="BootstrapperTests.cs" />
-    <Compile Include="InvalidPhoneNumberTests.cs" />
-    <Compile Include="ValidPhoneNumberTests.cs" />
     <Compile Include="PersonValidationTest.cs" />
     <Compile Include="PersonFactoryTests.cs" />
+    <Compile Include="Routes\PersonRouteTest.cs" />
+    <Compile Include="Routes\EventRouteTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -85,13 +85,8 @@
       <Project>{B4296125-C186-43DE-8900-93F659D2EE03}</Project>
       <Name>HereIAm</Name>
     </ProjectReference>
-    <ProjectReference Include="..\HereIAm.Dto\HereIAm.Dto.csproj">
-      <Project>{54E4CEA4-FC9E-4C77-8394-F75B13C99C9A}</Project>
-      <Name>HereIAm.Dto</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\HereIAm.DAL\HereIAm.DAL.csproj">
-      <Project>{5802DDB3-66B7-4461-B5CD-61A5CD535BAF}</Project>
-      <Name>HereIAm.DAL</Name>
-    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Routes\" />
   </ItemGroup>
 </Project>

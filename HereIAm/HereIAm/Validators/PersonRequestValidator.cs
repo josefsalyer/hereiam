@@ -1,11 +1,10 @@
 ﻿using System;
 using Nancy.Validation.FluentValidation;
 using FluentValidation;
-using HereIAm.Dto;
 
 namespace HereIAm
 {
-	public class PersonRequestValidator : AbstractValidator<PersonRequest>
+	public class PersonRequestValidator : AbstractValidator<Person>
 	{
 		public PersonRequestValidator ()
 		{
