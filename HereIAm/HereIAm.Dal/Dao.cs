@@ -21,25 +21,24 @@ namespace HereIAm
 			return await _collection.Find(x => x.Id == id).SingleAsync();
 		}
 
-		public async Task Save(T obj)
+		public async void Save(T obj)
 		{
 			await _collection.InsertOneAsync(obj);
 		}
 
-		public async Task Delete(T obj)
+		public async void Delete(T obj)
 		{
 			await _collection.DeleteOneAsync(x => x.Id == obj.Id);
 		}
 
-		public async Task Update(T obj)
+		public async void Update(T obj)
 		{
 			await _collection.ReplaceOneAsync(x => x.Id == obj.Id, obj);
 		}
 
 		public async Task<IEnumerable<T>> FindAll()
 		{
-			var people = await _collection.Find("{}").ToListAsync();
-			return people;
+			return await _collection.Find("{}").ToListAsync();
 		}
 	}
 }
