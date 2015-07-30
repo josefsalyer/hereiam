@@ -24,6 +24,7 @@ namespace HereIAm.Test
 			var dao = _factory.Create<Person> (Env.Dev) ; //this actually creates the collection
 
 			Assert.NotNull (dao);
+			throw new NotImplementedException ("This will always pass.");
 		}
 
 
@@ -33,6 +34,7 @@ namespace HereIAm.Test
 			var dao = _factory.Create<Event> (Env.Dev);
 
 			Assert.NotNull(dao);
+			throw new NotImplementedException ("This will always pass.");
 		}
 		
 
