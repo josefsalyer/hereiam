@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using HereIAm.Models;
+using HereIAm.Model;
 
 namespace HereIAm
 {

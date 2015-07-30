@@ -5,7 +5,7 @@ using Moq;
 using Nancy;
 using Nancy.Testing;
 using HereIAm.Dto;
-using HereIAm.Models;
+using HereIAm.Model;
 
 namespace HereIAm.Test
 {
@@ -21,7 +21,7 @@ namespace HereIAm.Test
 
 			// Mocking
 			var mockVisitorManager = Mock.Of<VisitorManager> (vm =>
-				vm.GetVisitor(PHONE_NUMBER) == new Models.Person { Name = VISITOR_NAME, PhoneNumber = phoneNumber });
+				vm.GetVisitor(PHONE_NUMBER) == new Model.Person { Name = VISITOR_NAME, PhoneNumber = phoneNumber });
 			
 			// Arrange
 			var notifier = new HostNotifier (mockVisitorManager);

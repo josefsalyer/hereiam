@@ -1,5 +1,6 @@
 ﻿using System;
-using HereIAm.Models;
+using HereIAm.Model;
+using HereIAm.Model.Validator;
 
 namespace HereIAm
 {

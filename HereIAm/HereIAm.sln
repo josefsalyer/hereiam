@@ -9,7 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HereIAm.SelfHost", "HereIAm
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HereIAm.Dto", "HereIAm.Dto\HereIAm.Dto.csproj", "{54E4CEA4-FC9E-4C77-8394-F75B13C99C9A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HereIAm.DAL", "HereIAm.DAL\HereIAm.DAL.csproj", "{5802DDB3-66B7-4461-B5CD-61A5CD535BAF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HereIAm.Model", "HereIAm.Model\HereIAm.Model.csproj", "{D5AF5D65-300F-458D-BC19-16E2FFF36B13}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HereIAm.Dal", "HereIAm.DAL\HereIAm.Dal.csproj", "{5802DDB3-66B7-4461-B5CD-61A5CD535BAF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,5 +39,9 @@ Global
 		{B4296125-C186-43DE-8900-93F659D2EE03}.Debug|x86.Build.0 = Debug|Any CPU
 		{B4296125-C186-43DE-8900-93F659D2EE03}.Release|x86.ActiveCfg = Release|Any CPU
 		{B4296125-C186-43DE-8900-93F659D2EE03}.Release|x86.Build.0 = Release|Any CPU
+		{D5AF5D65-300F-458D-BC19-16E2FFF36B13}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D5AF5D65-300F-458D-BC19-16E2FFF36B13}.Debug|x86.Build.0 = Debug|Any CPU
+		{D5AF5D65-300F-458D-BC19-16E2FFF36B13}.Release|x86.ActiveCfg = Release|Any CPU
+		{D5AF5D65-300F-458D-BC19-16E2FFF36B13}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
