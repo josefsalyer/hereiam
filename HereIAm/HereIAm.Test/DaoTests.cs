@@ -22,7 +22,6 @@ namespace HereIAm.Test
 		{
 			
 			var dao = _factory.Create<Person> (Env.Dev) ; //this actually creates the collection
-			var all = dao.Get ("1");
 
 			Assert.NotNull (dao);
 			throw new NotImplementedException ("This will always pass.");
