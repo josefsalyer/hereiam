@@ -88,6 +88,22 @@ namespace HereIAm
 				return HttpStatusCode.OK;
 			};
 
+			Delete  ["/", runAsync: true] = async (_, token) =>
+			{
+				var person = this.Bind<Person>();
+
+				ValidationResult result = ValidateRequestBody(person);
+
+				if(!result.IsValid){
+					return Response.AsJson(result.Errors, HttpStatusCode.BadRequest);
+				}
+
+				await _db.People.Delete(person);
+
+				return HttpStatusCode.OK;
+
+			};
+
 		}
 	}
 }

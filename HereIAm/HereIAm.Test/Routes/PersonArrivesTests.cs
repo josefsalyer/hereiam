@@ -2,6 +2,7 @@
 using System;
 using Nancy;
 using Nancy.Testing;
+using HereIAm.Data;
 
 namespace HereIAm.Test
 {
@@ -9,7 +10,7 @@ namespace HereIAm.Test
 	public class PersonArrivesTests
 	{
 		private Browser _client;
-			
+		private DBConnection _db;	
 		[SetUp]
 		public void SetUp()
 		{
@@ -83,7 +84,7 @@ namespace HereIAm.Test
 		[Test]
 		public void PersonArrivesWithBlankNameAndInvalidPhoneNumberTooShort(){
 			//Act
-			var jsonName = "{'name':'','phonenumber':'012345678901'}";
+			var jsonName = "{'name':'','phonenumber':'012345'}";
 			var results = _client.Put ("/person/arrived", x => {
 				x.HttpRequest ();
 				x.Header ("Content-Type", "application/json");
