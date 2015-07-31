@@ -57,19 +57,6 @@ namespace HereIAm.Test
 		}
 
 
-		[Test]
-		public void UserArrivesWithInvalidPhoneNumberTooShortPostReturnsInvalid () {
-			//Act
-			var jsonName = "{'name':'james', 'number':'1231231'}";
-			var results = _client.Put ("/person/arrived", x => {
-				x.HttpRequest ();
-				x.Header ("Content-Type", "application/json");
-				x.Body(jsonName);
-			});
-
-			// Assert
-			Assert.AreEqual (HttpStatusCode.BadRequest, results.StatusCode);
-		}
 
 	}
 }

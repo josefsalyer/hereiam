@@ -76,6 +76,7 @@
     <Compile Include="Controllers\ArrivalManagerTests.cs" />
     <Compile Include="Models\EventTests.cs" />
     <Compile Include="Data\EventsTests.cs" />
+    <Compile Include="HereIAmFixtureSetup.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

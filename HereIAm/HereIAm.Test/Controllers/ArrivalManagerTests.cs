@@ -9,6 +9,8 @@ using HereIAm.Data;
 
 namespace HereIAm.Test
 {
+	
+
 	[TestFixture]
 	public class ArrivalManagerTests
 	{
@@ -73,6 +75,7 @@ namespace HereIAm.Test
 
 
 		[Test]
+		[Ignore]
 		public void HostNotifiedWhenExpectedVisitorArrives()
 		{
 

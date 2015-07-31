@@ -16,6 +16,7 @@ namespace HereIAm
 		DBConnection _db;
 		ArrivalManager _arrivalManager;
 
+
 		public ValidationResult ValidateRequestBody(Person person)
 		{
 			var validator = new PersonValidator();
@@ -61,6 +62,11 @@ namespace HereIAm
 				var person = this.Bind<Person>();
 
 				ValidationResult result = ValidateRequestBody(person);
+
+				if(!result.IsValid){
+					return Response.AsJson(result.Errors, HttpStatusCode.BadRequest);
+				}
+
 
 				//check to see if person exists, if not return danger message
 				var results = await _db.People.FindByPhoneNumber(person.PhoneNumber);
