@@ -29,7 +29,7 @@ namespace HereIAm.Test
 				Hosts = new List<Person>()
 			};
 
-			_db = new DBConnection ();
+			_db = DBConnection.Connection("hereiam-test");
 
 		}
 

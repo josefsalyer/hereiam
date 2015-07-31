@@ -27,7 +27,7 @@ namespace HereIAm
 
 		public PersonRoute () : base("/person")
 		{
-			_db = new DBConnection ();
+			_db = DBConnection.Connection();
 			_arrivalManager = new ArrivalManager ();
 
 			Get ["/", runAsync: true] = async (_, token) =>

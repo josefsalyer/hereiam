@@ -16,6 +16,7 @@ namespace HereIAm.Test
 		{
 			// Arrange
 			_client = new Browser (new Bootstrapper ());
+
 		}
 
 		[TearDown] 
@@ -107,13 +108,6 @@ namespace HereIAm.Test
 
 			//Assert
 			Assert.AreEqual (HttpStatusCode.BadRequest, results.StatusCode);
-		}
-
-		[Test]
-		public void PersonArrivesAndIsUnexpected()
-		{
-				
-			
 		}
 
 

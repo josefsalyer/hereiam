@@ -13,7 +13,7 @@ namespace HereIAm.Test
 		[SetUp]
 		public void RunBeforelAllTestClasses()
 		{
-			_db = new DBConnection("hereiam-test");
+			_db = DBConnection.Connection("hereiam-test");
 		}
 
 

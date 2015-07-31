@@ -11,7 +11,7 @@ namespace HereIAm
 		
 		public EventRoute () : base("/event")
 		{
-			DBConnection _db = new DBConnection();
+			DBConnection _db = DBConnection.Connection();
 
 			Get ["/", runAsync: true] = async (_, token) =>
 			{

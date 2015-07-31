@@ -20,14 +20,14 @@ namespace HereIAm.Test
 		[Test]
 		public void TestDBConnectionNotNull ()
 		{
-			var db = new DBConnection ();
+			var db = DBConnection.Connection ("hereiam-test");
 			Assert.NotNull (db);
 		}
 
 		[Test]
 		public void TestConstructionsSetsDefaults()
 		{
-			var db = new DBConnection ();
+			var db = DBConnection.Connection ("hereiam-test");
 			Assert.NotNull (db);
 			var expectedHost = @"localhost";
 			var actualHost = db.Client.Settings.Server.Host;
@@ -44,7 +44,7 @@ namespace HereIAm.Test
 		[Test]
 		public void TestDBConnectionHasHereIamDB()
 		{
-			var connection = new DBConnection ();
+			var connection = DBConnection.Connection ("hereiam-test");
 			var db = connection.Database;
 
 			Assert.NotNull (db);
@@ -53,7 +53,7 @@ namespace HereIAm.Test
 		[Test]
 		public void TestPeopleCollectionExists()
 		{
-			var connection = new DBConnection ();
+			var connection = DBConnection.Connection ("hereiam-test");
 			var db = connection.Database;
 			var people = connection.People ; //this actually creates the collection
 
@@ -64,7 +64,7 @@ namespace HereIAm.Test
 		[Test]
 		public void TestEventsCollectionExists()
 		{
-			var connection = new DBConnection ();
+			var connection = DBConnection.Connection ("hereiam-test");
 			var db = connection.Database;
 			var events = connection.Events;
 

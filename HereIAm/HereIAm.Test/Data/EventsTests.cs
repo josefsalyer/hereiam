@@ -34,7 +34,7 @@ namespace HereIAm.Test
 				Name = "Guest"
 			};
 
-			_db = new DBConnection ();
+			_db = DBConnection.Connection ("hereiam-test");
 			_db.People.Save (_host);
 			_db.People.Save (_guest);
 

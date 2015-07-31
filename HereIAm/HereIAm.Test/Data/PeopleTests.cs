@@ -23,7 +23,7 @@ namespace HereIAm.Test
 				Name = "Nobody"
 			};
 
-			_db = new DBConnection ();
+			_db = DBConnection.Connection ("hereiam-test");
 			_db.People.Save (_person);
 		}
 

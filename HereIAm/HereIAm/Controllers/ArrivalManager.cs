@@ -11,7 +11,8 @@ namespace HereIAm
 
 		public ArrivalManager ()
 		{
-			_db = new DBConnection ();
+			_db = DBConnection.Connection();
+
 		}
 
 		public bool IsExpected (Person person)
