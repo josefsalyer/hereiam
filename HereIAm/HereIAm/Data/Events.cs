@@ -44,9 +44,9 @@ namespace HereIAm.Data
 
 		public async Task<IEnumerable<Event>> FindInvited(Person person)
 		{
-			var serializer = new BsonSerializer ();
 
-			var events = await _collection.Find("{'Guests':'"+person+"'}").ToListAsync();
+
+			var events = await _collection.Find("{'Guests': {'$elemMatch': { '_id':'"+person.Id+"' }}}'}").ToListAsync();
 			return events;
 		}
 			
