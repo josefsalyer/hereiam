@@ -25,7 +25,9 @@ namespace HereIAm
 
 				var evt = this.Bind<Event>();
 
+				evt.Id = Guid.NewGuid().ToString();
 
+				await _db.Events.Save(evt);
 
 				return Response.AsJson(evt, HttpStatusCode.OK);
 			};
