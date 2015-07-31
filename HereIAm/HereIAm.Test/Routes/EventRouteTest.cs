@@ -21,7 +21,8 @@ namespace HereIAm.Test
 		[Test]
 		public void TestGetEventRoute ()
 		{
-			var results = _client.Get ("/person", x => {
+			
+			var results = _client.Get ("/event", x => {
 				x.HttpRequest ();
 				x.Header ("Content-Type", "application/json");
 			
@@ -30,6 +31,8 @@ namespace HereIAm.Test
 			// Assert
 			Assert.AreEqual (HttpStatusCode.OK, results.StatusCode);
 		}
+
+
 	}
 }
 

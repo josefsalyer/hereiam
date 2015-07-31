@@ -20,6 +20,13 @@ namespace HereIAm.Data
 			return await _collection.Find(x => x.Id == id).SingleAsync();
 		}
 
+		//find by phonenumber
+		public async Task<IEnumerable<Person>> FindByPhoneNumber(string phoneNumber)
+		{
+			var people = await _collection.Find ("{ 'PhoneNumber': '" + phoneNumber + "' }").ToListAsync ();
+			return people;
+		}
+
 		public async Task Save(Person person)
 		{
 			await _collection.InsertOneAsync(person);

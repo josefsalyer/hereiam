@@ -74,6 +74,7 @@
     <Compile Include="Data\People.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Routes\EventRoute.cs" />
+    <Compile Include="Controllers\ArrivalManager.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -84,5 +85,6 @@
     <Folder Include="Validators\" />
     <Folder Include="Models\" />
     <Folder Include="Data\" />
+    <Folder Include="Controllers\" />
   </ItemGroup>
 </Project>

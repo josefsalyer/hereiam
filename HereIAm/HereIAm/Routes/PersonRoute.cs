@@ -59,12 +59,23 @@ namespace HereIAm
 
 				ValidationResult result = ValidateRequestBody(person);
 
-				if(!result.IsValid){
+				//check to see if person exists, if not return danger message
+				var results = await _db.People.FindByPhoneNumber(person.PhoneNumber);
+
+
+
+				//first look for events where they are guests
+
+
+				//then we want to notify the hosts
+
+
+
+
+				if(!result.IsValid)
+				{
 					return Response.AsJson(result.Errors, HttpStatusCode.BadRequest);
 				}
-
-
-
 
 				return HttpStatusCode.OK;
 			};

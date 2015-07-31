@@ -5,19 +5,82 @@ using Moq;
 using Nancy;
 using Nancy.Testing;
 using HereIAm.Models;
+using HereIAm.Data;
 
 namespace HereIAm.Test
 {
 	[TestFixture]
-	public class HostNotifiedTests
+	public class ArrivalManagerTests
 	{
+		private DBConnection _db;
+		private Person _host;
+		private Person _guest;
+		private Event _event;
+
+		[SetUp]
+		public void SetUp()
+		{
+			_host = new Person {
+				Id = Guid.NewGuid().ToString(),
+				PhoneNumber = "1112223333",
+				Name = "Hoster"
+			};
+
+			_guest = new Person {
+				Id = Guid.NewGuid ().ToString (),
+				PhoneNumber = "9990009999",
+				Name = "Guest"
+			};
+
+			_db = new DBConnection ();
+			_db.People.Save (_host);
+			_db.People.Save (_guest);
+
+			var guests = new List<Person> {_guest};
+
+
+			var hosts = new List<Person> {_host};
+
+			_event = new Event {
+				Id = Guid.NewGuid ().ToString (),
+				Name = "Awesome Event",
+				Guests = guests,
+				Hosts = hosts
+			};
+
+
+			_db.Events.Save (_event);
+
+		}
+
+
+		[TearDown]
+		public void TearDown()
+		{
+			_db.Events.Delete (_event);
+			_db.People.Delete (_host);
+			_db.People.Delete (_guest);
+		}
+
 		[Test]
+		public void TestVisitorIsExpected ()
+		{
+
+
+
+			var arrivalManager = new ArrivalManager ();
+
+			Assert.True (arrivalManager.IsExpected (_guest));
+		}
+
+		[Test]
+		[Ignore]
 		public void HostNotifiedWhenExpectedVisitorArrives()
 		{
-			const string VISITOR_NAME = "John Doe";
-			const string PHONE_NUMBER = "5551235678";
-
-
+//			const string VISITOR_NAME = "John Doe";
+//			const string PHONE_NUMBER = "5551235678";
+//
+//
 //			// Mocking
 //			var mockVisitorManager = Mock.Of<VisitorManager> (vm =>
 //				vm.GetVisitor(PHONE_NUMBER) == new Models.Person { Name = VISITOR_NAME, PhoneNumber = phoneNumber });
@@ -45,12 +108,13 @@ namespace HereIAm.Test
 		}
 
 		[Test]
+		[Ignore]
 		public void HostNotifiedWhenValidVisitorArrivesPost()
 		{
 			
 			// Arrange
-			const string VISITOR_NAME = "John Doe";
-			const string PHONE_NUMBER = "5551235678";
+//			const string VISITOR_NAME = "John Doe";
+//			const string PHONE_NUMBER = "5551235678";
 //			var phoneNumber = new PhoneNumber(PHONE_NUMBER);
 //			var jsonName = "{'name':'"+VISITOR_NAME+"'}";
 //
@@ -62,8 +126,8 @@ namespace HereIAm.Test
 //			var expected = new List<Person> {
 //				new Person { Name = VISITOR_NAME, PhoneNumber = phoneNumber }
 //			};
-
-			// Watch for event
+//
+//			//Watch for event
 //			notifier.VisitorArrived += delegate (object sender, VisitorEventArgs e)
 //			{
 //				results.Add(visitorManager.GetVisitor(e.PhoneNumber));

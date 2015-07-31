@@ -17,13 +17,13 @@ namespace HereIAm.Models
 			set;
 		}
 
-		public List<string> Hosts
+		public List<Person> Hosts
 		{
 			get;
 			set;
 		}
 
-		public List<string> Guests
+		public List<Person> Guests
 		{
 			get;
 			set;

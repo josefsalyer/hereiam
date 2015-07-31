@@ -3,6 +3,7 @@ using MongoDB.Driver;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using HereIAm.Models;
+using MongoDB.Bson.Serialization;
 
 namespace HereIAm.Data
 {
@@ -38,6 +39,14 @@ namespace HereIAm.Data
 		public async Task<IEnumerable<Event>> FindAll()
 		{
 			var events = await _collection.Find("{}").ToListAsync();
+			return events;
+		}
+
+		public async Task<IEnumerable<Event>> FindInvited(Person person)
+		{
+			var serializer = new BsonSerializer ();
+
+			var events = await _collection.Find("{'Guests':'"+person+"'}").ToListAsync();
 			return events;
 		}
 			
