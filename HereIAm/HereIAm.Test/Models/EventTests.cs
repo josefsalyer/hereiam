@@ -4,7 +4,7 @@ using NUnit.Framework;
 namespace HereIAm.Test
 {
 	[TestFixture]
-	public class EventsTests
+	public class EventTests
 	{
 		[Test]
 		[Ignore]

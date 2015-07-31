@@ -66,17 +66,17 @@ namespace HereIAm.Test
 		public void TestVisitorIsExpected ()
 		{
 
-
-
 			var arrivalManager = new ArrivalManager ();
 
 			Assert.True (arrivalManager.IsExpected (_guest));
 		}
 
+
 		[Test]
-		[Ignore]
 		public void HostNotifiedWhenExpectedVisitorArrives()
 		{
+
+
 //			const string VISITOR_NAME = "John Doe";
 //			const string PHONE_NUMBER = "5551235678";
 //

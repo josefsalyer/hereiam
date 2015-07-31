@@ -14,6 +14,7 @@ namespace HereIAm
 	public class PersonRoute : NancyModule
 	{
 		DBConnection _db;
+		ArrivalManager _arrivalManager;
 
 		public ValidationResult ValidateRequestBody(Person person)
 		{
@@ -26,6 +27,8 @@ namespace HereIAm
 		public PersonRoute () : base("/person")
 		{
 			_db = new DBConnection ();
+			_arrivalManager = new ArrivalManager ();
+
 			Get ["/", runAsync: true] = async (_, token) =>
 			{
 
@@ -61,18 +64,23 @@ namespace HereIAm
 
 				//check to see if person exists, if not return danger message
 				var results = await _db.People.FindByPhoneNumber(person.PhoneNumber);
+				List <Person> validPeople = new List<Person>(results);
 
+				//if not valid return early
+				if(validPeople.Count == 0)
+				{
+					return Response.AsJson("{'Warning':'Stranger Danger'}",HttpStatusCode.OK);
+				}
 
-
-				//first look for events where they are guests
-
+				//look for events where they are expected guests
+				var isExpected = _arrivalManager.IsExpected(person);
 
 				//then we want to notify the hosts
 
 
 
 
-				if(!result.IsValid)
+				if(!isExpected)
 				{
 					return Response.AsJson(result.Errors, HttpStatusCode.BadRequest);
 				}

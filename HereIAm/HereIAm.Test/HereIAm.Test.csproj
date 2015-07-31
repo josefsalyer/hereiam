@@ -69,12 +69,13 @@
     <Compile Include="Routes\PersonRouteTest.cs" />
     <Compile Include="Routes\EventRouteTest.cs" />
     <Compile Include="Data\DBConnectionTests.cs" />
-    <Compile Include="Models\EventsTests.cs" />
     <Compile Include="Data\PeopleTests.cs" />
     <Compile Include="Models\PersonValidationTest.cs" />
     <Compile Include="Models\PersonFactoryTests.cs" />
     <Compile Include="Routes\PersonArrivesTests.cs" />
     <Compile Include="Controllers\ArrivalManagerTests.cs" />
+    <Compile Include="Models\EventTests.cs" />
+    <Compile Include="Data\EventsTests.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

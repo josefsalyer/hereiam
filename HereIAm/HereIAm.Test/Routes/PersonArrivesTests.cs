@@ -11,20 +11,20 @@ namespace HereIAm.Test
 		private Browser _client;
 			
 		[SetUp]
-		public void InitializeTest()
+		public void SetUp()
 		{
 			// Arrange
 			_client = new Browser (new Bootstrapper ());
 		}
 
 		[TearDown] 
-		public void Dispose()
+		public void TearDown()
 		{
 			_client = null;
 		}
 
 		[Test]
-		public void UserArrivesWihValidPhoneNumberAndNamePostReturnsOK ()
+		public void PersonArrivesWihValidPhoneNumberAndNamePostReturnsOK ()
 		{
 			// Act
 			var jsonName = "{'name':'james','PhoneNumber':'1119992112'}";
@@ -39,7 +39,7 @@ namespace HereIAm.Test
 		}
 
 		[Test]
-		public void UserArrivesWithInvalidPhoneNumberTooShortPostReturnsInvalid () {
+		public void PersonArrivesWithInvalidPhoneNumberTooShortPostReturnsInvalid () {
 			//Act
 			var jsonName = "{'name':'james', 'PhoneNumber':'123456'}";
 			var results = _client.Put ("/person/arrived", x => {
@@ -53,7 +53,7 @@ namespace HereIAm.Test
 		}
 
 		[Test]
-		public void UserArrivesWithValidNameAndInvalidPhoneNumberBadCharPutReturnsInvalid() {
+		public void PersonArrivesWithValidNameAndInvalidPhoneNumberBadCharPutReturnsInvalid() {
 			// Act
 			var jsonName = "{'name':'james','phonenumber':'BADBEEF123'}";
 			var results = _client.Put ("/person/arrived", x => {
@@ -67,7 +67,7 @@ namespace HereIAm.Test
 		}
 
 		[Test]
-		public void UserArrivesWithValidNameAndInvalidPhoneNumberTooLongPutReturnsInvalid() {
+		public void PersonArrivesWithValidNameAndInvalidPhoneNumberTooLongPutReturnsInvalid() {
 			// Act
 			var jsonName = "{'name':'james','phonenumber':'012345678901'}";
 			var results = _client.Put ("/person/arrived", x => {
@@ -81,7 +81,7 @@ namespace HereIAm.Test
 		}
 
 		[Test]
-		public void UserArrivesWithBlankNameAndInvalidPhoneNumberTooShort(){
+		public void PersonArrivesWithBlankNameAndInvalidPhoneNumberTooShort(){
 			//Act
 			var jsonName = "{'name':'','phonenumber':'012345678901'}";
 			var results = _client.Put ("/person/arrived", x => {
@@ -95,7 +95,7 @@ namespace HereIAm.Test
 		}
 
 		[Test]
-		public void UserArrivesWithBlankNameAndValidPhoneNumber(){
+		public void PersonArrivesWithBlankNameAndValidPhoneNumber(){
 			//Act
 			var jsonName = "{'name':'', 'phonenumber':'5551234567'}";
 			var results = _client.Put ("/person/arrived", x => {
@@ -106,6 +106,13 @@ namespace HereIAm.Test
 
 			//Assert
 			Assert.AreEqual (HttpStatusCode.BadRequest, results.StatusCode);
+		}
+
+		[Test]
+		public void PersonArrivesAndIsUnexpected()
+		{
+				
+			
 		}
 
 
