@@ -1,7 +1,5 @@
 ﻿using System;
-<<<<<<< HEAD
 using NUnit.Framework;
-=======
 using HereIAm.DAL;
 using HereIAm.Dto;
 using MongoDB.Driver;
@@ -16,7 +14,7 @@ namespace HereIAm.Test
 	{
 		private DBConnection connection;
 		private IMongoDatabase db;
-		private IMongoCollection<Person> collection;
+		private IMongoCollection<PersonRequest> collection;
 		private People people;
 
 		[SetUp]
@@ -24,14 +22,14 @@ namespace HereIAm.Test
 		{
 			connection = new DBConnection ();
 			db = connection.Database;
-			collection = db.GetCollection<Person> ("People");
+			collection = db.GetCollection<PersonRequest> ("People");
 			people = new People (collection);
 		}
 
 		[Test]
 		public void CreateAPerson()
 		{
-			var person = new Person { Name = "Kimmy Gibbler", PhoneNumber = "1112223344" };
+			var person = new PersonRequest { Name = "Kimmy Gibbler", PhoneNumber = "1112223344" };
 			var expectedId = person.Id;
 			people.Save(person);
 
@@ -40,7 +38,7 @@ namespace HereIAm.Test
 			Assert.AreEqual (actualPerson.Result.PhoneNumber, person.PhoneNumber);
 		}
 
-		public async Task<Person> Get(String id, IMongoCollection<Person> collection)
+		public async Task<PersonRequest> Get(String id, IMongoCollection<PersonRequest> collection)
 		{
 			return await collection.Find(x => x.Id == id).SingleAsync();
 		}

@@ -10,23 +10,23 @@ namespace HereIAm.Dto
 			set;
 		}
 
-		public List<Person> Hosts {
+		public List<PersonRequest> Hosts {
 			get;
 			set;
 		}
 
-		public List<Person> Visitors {
+		public List<PersonRequest> Visitors {
 			get;
 			set;
 		}
 
 		public Event ()
 		{
-			Hosts =	new List<Person>();
-			Visitors =	new List<Person>();
+			Hosts =	new List<PersonRequest>();
+			Visitors =	new List<PersonRequest>();
 		}
 
-		public Event (Person host) : this()
+		public Event (PersonRequest host) : this()
 		{
 			this.Hosts.Add (host);
 		}

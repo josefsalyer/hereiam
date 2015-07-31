@@ -10,8 +10,8 @@ namespace HereIAm.Test
 		[Test]
 		public void PersonClassExists ()
 		{
-			Person actual = new Person ();
-			Assert.IsInstanceOf<Person> (actual);
+			var actual = new PersonRequest ();
+			Assert.IsInstanceOf<PersonRequest> (actual);
 		}
 
 		[Test]
@@ -20,7 +20,7 @@ namespace HereIAm.Test
 			var expectedName = "Mack the Knife";
 			var expectedNumber = "1232341234";
 			var expectedGuid = Guid.NewGuid ().ToString ();
-			Person actual = new Person (expectedName, expectedNumber, expectedGuid);
+			var actual = new PersonRequest (expectedName, expectedNumber, expectedGuid);
 			Assert.AreEqual (expectedGuid, actual.Id);
 			Assert.AreEqual (expectedNumber, actual.PhoneNumber);
 			Assert.AreEqual (expectedName, actual.Name);	
@@ -28,7 +28,7 @@ namespace HereIAm.Test
 
 		[Test]
 		public void GenerateGUIDWhenOneIsntThere () {
-			Person actual = new Person ("Kimmy the Hammer", "9075552727");
+			var actual = new PersonRequest ("Kimmy the Hammer", "9075552727");
 			Assert.IsNotNull (actual.Id);
 		}
 	}
