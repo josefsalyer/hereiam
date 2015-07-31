@@ -1,8 +1,8 @@
 ﻿using System;
 using FluentValidation;
-using HereIAm.Models;
+using HereIAm.Model;
 
-namespace HereIAm
+namespace HereIAm.Model.Validator
 {
 	public class PersonValidator : AbstractValidator<Person>
 	{

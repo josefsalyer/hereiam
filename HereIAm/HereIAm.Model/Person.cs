@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace HereIAm.Models
+namespace HereIAm.Model
 {
-	public class Person : IEquatable<Person>
+	public class Person : ModelBase, IEquatable<Person>
 	{
 		public string Name { get; set; }
 		public PhoneNumber PhoneNumber { get; set; }

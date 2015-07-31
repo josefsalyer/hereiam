@@ -1,6 +1,7 @@
 ﻿using System;
 using NUnit.Framework;
-using HereIAm.Models;
+using HereIAm.Model;
+using HereIAm.Model.Validator;
 
 namespace HereIAm.Test
 {
