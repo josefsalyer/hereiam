@@ -10,6 +10,24 @@ namespace HereIAm.Dto
 
 		public string PhoneNumber { get; set; } 
 
+		public Person()
+		{
+		}
+
+		public Person(String name, String phoneNumber, String id)
+		{
+			Name = name;
+			PhoneNumber = phoneNumber;
+			Id = id;
+		}
+
+		public Person(String name, String phoneNumber)
+		{
+			Name = name;
+			PhoneNumber = phoneNumber;
+			Id = Guid.NewGuid ().ToString ();
+		}
+
 		#region IEquatable implementation
 
 		/// <inheritdoc />
